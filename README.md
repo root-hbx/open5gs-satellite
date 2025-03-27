@@ -4,8 +4,11 @@ This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
 There are 2 branch:
 
-- `stable`: main branch, ensure stability
+- `stable`: ensure stability
+  - all config files are unmodified
+  - all func and module tests should be 100/100
 - `mm-roam`: nightly built
+  - config files are modified with the requirement of 5G Roaming
 
 ## Quick Start
 
