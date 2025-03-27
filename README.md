@@ -1,4 +1,4 @@
-# Open5gs for Satellite Networks
+# OpenSat: Open5gs for Satellite Networks
 
 This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
