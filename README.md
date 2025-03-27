@@ -69,4 +69,4 @@ Coming Soon...
 
 ## Contributing
 
-We welcome all contributions to the project! See [CONTRIBUTING](./contribute.md) for how to get involved.
+We welcome all contributions to the project! See [CONTRIBUTING](./CONTRIBUTING.md) for how to get involved.
