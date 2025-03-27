@@ -18,8 +18,8 @@ Follow [Building Open5GS from Sources - Open5GS](https://open5gs.org/open5gs/doc
 - Building Open5GS
   - ensure all tests go smoothly
   - config file: `$open5gs-satellite/build/configs/sample.yaml`
-- Configure Open5GS
 - Running Open5GS
+  - no 'Configure Open5gs'! run directly!
   - ensure all tests work well
   - config files: `$open5gs-satellite/install/etc/open5gs/[NAME].yaml`
 - Building the WebUI of Open5GS
