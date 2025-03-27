@@ -1,44 +1,68 @@
-<p align="center"><a href="https://open5gs.org" target="_blank" rel="noopener noreferrer"><img width="100" src="https://open5gs.org/assets/img/open5gs-logo-only.png" alt="Open5GS logo"></a></p>
+# Open5gs for Satellite Networks
 
-## Getting Started
+This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
-Please follow the [documentation](https://open5gs.org/open5gs/docs/) at [open5gs.org](https://open5gs.org/)!
+There are 2 branch:
 
-## Sponsors
+- `stable`: main branch, ensure stability
+- `mm-roam`: nightly built
 
-If you find Open5GS useful for work, please consider supporting this Open Source project by [Becoming a sponsor](https://github.com/sponsors/acetcom). To manage the funding transactions transparently, you can donate through [OpenCollective](https://opencollective.com/open5gs).
+## Quick Start
 
-<p align="center">
-  <h3 align="center">Special Sponsor</h3>
-</p>
+**Skeleton**
 
-<p align="center">
-  <a target="_blank" href="https://mobi.com">
-  <img alt="special sponsor mobi" src="https://open5gs.org/assets/img/mobi-open5GS.png" width="400">
-  </a>
-</p>
+Follow [Building Open5GS from Sources - Open5GS](https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/) to configure and build the skeleton:
 
-<p align="center">
-  <a target="_blank" href="https://open5gs.org/#sponsors">
-      <img alt="sponsors" src="https://open5gs.org/assets/img/sponsors.svg">
-  </a>
-</p>
+- Getting MongoDB
+- Setting up TUN device (not persistent after rebooting)
+- Building Open5GS
+  - ensure all tests go smoothly
+  - config file: `$open5gs-satellite/build/configs/sample.yaml`
+- Configure Open5GS
+- Running Open5GS
+  - ensure all tests work well
+  - config files: `$open5gs-satellite/install/etc/open5gs/[NAME].yaml`
+- Building the WebUI of Open5GS
 
-## Community
+**Roaming Between Core Networks**
 
-- Problem with Open5GS can be filed as [issues](https://github.com/open5gs/open5gs/issues) in this repository.
-- Other topics related to this project are happening on the [discussions](https://github.com/open5gs/open5gs/discussions).
-- Voice and text chat are available in Open5GS's [Discord](https://discordapp.com/) workspace. Use [this link](https://discord.gg/GreNkuc) to get started.
+Follow [Roaming: Roaming Test on a Single Host](https://open5gs.org/open5gs/docs/tutorial/05-roaming/) to build a simple test:
 
-## Contributing
+- Config Home PLMN
+- Config Visited PLMN
+- Run the V-PLMN 5G Core and H-PLMN 5G Core on a single host
+  - Home Network: open multiple windows, keep running for connection
+  - Visited Network: open multiple windows, keep running for observation
+  - Performs a test of UE access while roaming subscribed to H-PLMN
+ 
+## Development
 
-If you're contributing through a pull request to Open5GS project on GitHub, please read the [Contributor License Agreement](https://open5gs.org/open5gs/cla/) in advance.
+> For Integrated Space-Terrestrial Network (ISTN)
 
-## License
+### End2End TraficGen Instances (Terrestrial)
 
-- Open5GS Open Source files are made available under the terms of the GNU Affero General Public License ([GNU AGPL v3.0](https://www.gnu.org/licenses/agpl-3.0.html)).
-- [Commercial licenses](https://open5gs.org/open5gs/support/) are also available from [NewPlane](https://newplane.io/) at [sales@newplane.io](mailto:sales@newplane.io).
+> Conducting End-to-End Traffic Generation Testing Based on this Framework
 
-## Support
+For a user equipment (UE) in a 5G core network, we aim to traverse the core network and reach a server in the wide-area network (WAN) to establish a connection and conduct traffic testing.
 
-Technical support and customized services for Open5GS are provided by [NewPlane](https://newplane.io/) at [support@newplane.io](mailto:support@newplane.io).
+In this process:
+
+1. Network traffic can be captured and analyzed using **Wireshark** or **Traceroute** to determine the traffic path.  
+2. The 5G core network is implemented using **Open5GS**.  
+3. The UE can be either an **Open5GS-native component** or simulated using **UERANSIM**.
+
+### End2End TrafficGen Instances (Satellite)
+
+Coming Soon...
+
+### Dynamic CoreNets
+
+Coming Soon...
+
+### High-Frequency Link Establishment
+
+Coming Soon...
+
+### Roaming between Multiple Satellite CoreNets
+
+Coming Soon...
