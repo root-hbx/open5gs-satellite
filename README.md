@@ -34,7 +34,42 @@ Follow [Roaming: Roaming Test on a Single Host](https://open5gs.org/open5gs/docs
   - Home Network: open multiple windows, keep running for connection
   - Visited Network: open multiple windows, keep running for observation
   - Performs a test of UE access while roaming subscribed to H-PLMN
- 
+
+**Warning: Something You Should Know Before Conducting Research**
+
+(1) Every time you `git pull`, you need to rebuild the whole system:
+
+```sh
+# rebuild
+cd open5gs-satellite
+meson build --prefix=`pwd`/install
+ninja -C build
+# test
+./build/tests/attach/attach ## EPC Only
+./build/tests/registration/registration ## 5G Core Only
+# ...
+```
+
+(2) Every time you restart your experiment device (PC/VM/Server...), you have to reconfigure the networks:
+
+```sh
+sudo ip tuntap add name ogstun mode tun
+sudo ip addr add 10.45.0.1/16 dev ogstun
+sudo ip addr add 2001:db8:cafe::1/48 dev ogstun
+sudo ip link set ogstun up
+```
+
+```sh
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo sysctl -w net.ipv6.conf.all.forwarding=1
+sudo iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
+sudo ip6tables -t nat -A POSTROUTING -s 2001:db8:cafe::/48 ! -o ogstun -j MASQUERADE
+```
+
+```sh
+sudo ufw disable
+```
+
 ## Development
 
 For Integrated Space-Terrestrial Network (ISTN), focusing on mobility management of satellite networks.
