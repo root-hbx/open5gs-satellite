@@ -4,8 +4,12 @@ This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
 There are 2 branch:
 
-- `stable`: main branch, ensure stability
+- `stable`: ensure stability
+  - all config files are unmodified
+  - all func and module tests should be 100/100
 - `mm-roam`: nightly built
+  - config files are modified with the requirement of 5G Roaming
+  - some errors when testing func and modules in Open5GS User's Guide, no worry
 
 ## Quick Start
 
@@ -19,7 +23,7 @@ Follow [Building Open5GS from Sources - Open5GS](https://open5gs.org/open5gs/doc
   - ensure all tests go smoothly
   - config file: `$open5gs-satellite/build/configs/sample.yaml`
 - Running Open5GS
-  - no 'Configure Open5gs'! run directly!
+  - no *Configure Open5gs*, run directly!
   - ensure all tests work well
   - config files: `$open5gs-satellite/install/etc/open5gs/[NAME].yaml`
 - Building the WebUI of Open5GS
