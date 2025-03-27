@@ -30,13 +30,15 @@ udm:
       key: /home/open5gs/open5gs-satellite/install/etc/open5gs/hnet/secp256r1-6.key
   sbi:
     server:
-      - address: 127.0.0.12
-        port: 7777
+      - address: udm.5gc.mnc070.mcc999.3gppnetwork.org
+      # - address: 127.0.0.12
+        # port: 7777
     client:
 #      nrf:
 #        - uri: http://127.0.0.10:7777
       scp:
-        - uri: http://127.0.0.200:7777
+        - uri: http://127.0.1.200:7777
+        # - uri: http://127.0.0.200:7777
 
 ################################################################################
 # Home Network Public Key

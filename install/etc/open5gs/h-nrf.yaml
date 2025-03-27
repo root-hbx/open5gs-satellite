@@ -1,0 +1,18 @@
+logger:
+  file:
+    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/h-nrf.log
+#  level: info   # fatal|error|warn|info(default)|debug|trace
+
+global:
+  max:
+    ue: 1024  # The number of UE can be increased depending on memory size.
+#    peer: 64
+
+nrf:
+  serving:  # 5G roaming requires PLMN in NRF
+    - plmn_id:
+        mcc: 999
+        mnc: 70
+  sbi:
+    server:
+      - address: nrf.5gc.mnc070.mcc999.3gppnetwork.org

@@ -24,7 +24,8 @@ sepp:
 #      nrf:
 #        - uri: http://127.0.0.10:7777
       scp:
-        - uri: http://127.0.0.200:7777
+        - uri: http://127.0.1.200:7777
+        # - uri: http://127.0.0.200:7777
   n32:
     server:
       - sender: sepp1.localdomain
