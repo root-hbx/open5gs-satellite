@@ -9,7 +9,7 @@ There are 2 branch:
 
 ## Quick Start
 
-**Skeleton**
+**(1) Skeleton**
 
 Follow [Building Open5GS from Sources - Open5GS](https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/) to configure and build the skeleton:
 
@@ -24,7 +24,7 @@ Follow [Building Open5GS from Sources - Open5GS](https://open5gs.org/open5gs/doc
   - config files: `$open5gs-satellite/install/etc/open5gs/[NAME].yaml`
 - Building the WebUI of Open5GS
 
-**Roaming Between Core Networks**
+**(2) Roaming Between Core Networks**
 
 Follow [Roaming: Roaming Test on a Single Host](https://open5gs.org/open5gs/docs/tutorial/05-roaming/) to build a simple test:
 
@@ -37,7 +37,7 @@ Follow [Roaming: Roaming Test on a Single Host](https://open5gs.org/open5gs/docs
  
 ## Development
 
-> For Integrated Space-Terrestrial Network (ISTN)
+For Integrated Space-Terrestrial Network (ISTN), focusing on mobility management of satellite networks.
 
 ### End2End TraficGen Instances (Terrestrial)
 
@@ -66,3 +66,7 @@ Coming Soon...
 ### Roaming between Multiple Satellite CoreNets
 
 Coming Soon...
+
+## Contributing
+
+We welcome all contributions to the project! See [CONTRIBUTING](./contribute.md) for how to get involved.
