@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
-def handle_database():
-    """Handle mongodb operations."""
-    print("Executing database operations...")
+class Database:
+
+    def handle_database(self):
+        """Handle mongodb operations."""
+        print("Executing database operations...")

@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
-def handle_process_status():
-    """Handle ps related operations"""
-    print("Executing process operations...")
+class ProcessConfig:
+
+    """Configuration for process operations"""
+
+    def handle_process_status(self):
+        """Handle ps related operations"""
+        print("Executing process operations...")
+
+    def handle_process_control(self):
+        """Handle process control"""
+        print("Executing process control...")
+
