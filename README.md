@@ -1,5 +1,11 @@
 # OpenSat: Open5gs Simulator for Satellite Networks
 
+![CI](https://github.com/root-hbx/open5gs-satellite/actions/workflows/meson-ci.yml/badge.svg)
+
+![Codecov](https://codecov.io/gh/root-hbx/open5gs-satellite/branch/mm-roam/graph/badge.svg)
+
+------
+
 This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
 Currently, there are 2 branch:
