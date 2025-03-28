@@ -11,7 +11,7 @@ from network import NetworkConfig
 from ps import ProcessConfig
 
 # Import custom modules
-from others import handle_error_cmd, handle_cleanup, show_custom_help, show_version_info, init_sys
+from others import handle_error_cmd, cleanup_sys, show_custom_help, show_version_info, init_sys
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
@@ -23,17 +23,17 @@ class CustomArgumentParser(argparse.ArgumentParser):
         sys.exit(2)
 
 def main():
-    #TODO(bxhu): add info
     """
     OpenSat - Open5GS for Satellite Networks
     - This script serves as a command-line interface for OpenSat
     - Handles various operations related to Open5GS
         - database: come to backend mongodb
         - network: NAT and routing
-        - ctun: create a virtual network tunnel called "ogstun"
+        - tun: virtual network tunnel called "ogstun"
         - process status: show all open5gs process status
         - process control: start/stop open5gs process
         - cleanup: release all open5gs resources
+        - init: initialize open5gs environment
     """
 
     # Use custom argument parser
@@ -111,7 +111,7 @@ def main():
         init_sys()
     elif args.command == 'syscls':
         # opensat cls
-        handle_cleanup()
+        cleanup_sys()
     else:
         pass # handled by CustomArgumentParser::error()
 
