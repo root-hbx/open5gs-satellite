@@ -83,7 +83,7 @@ def show_custom_help():
     print("  dtun                  Delete virtual network tunnel")
     print("  net                   Network configuration")
     print("  ps                    Show all open5gs process status")
-    print("  psc                   Open5gs process control")
+    print("  pscls                 Open5gs process control")
     print("  sysinit               Initialize all open5gs resources (net, tun, db)")
     print("  syscls                Clear all open5gs resources (ps, tun, db)")
     print()
