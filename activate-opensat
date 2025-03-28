@@ -42,7 +42,8 @@ if [ ! -x "${OPENSAT_SCRIPT}" ]; then
 fi
 
 # alias for cli/opensat.py
-alias opensat="${OPENSAT_SCRIPT}"
+chmod +x "${PROJECT_ROOT}/opensat-wrapper"
+alias opensat="${PROJECT_ROOT}/opensat-wrapper"
 
 echo "OpenSat environment activated. You can now use the 'opensat' command."
 echo "Run 'opensat help' to see available commands."
