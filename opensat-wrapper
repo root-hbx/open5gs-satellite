@@ -1,0 +1,15 @@
+#!/bin/bash
+# filepath: /home/parallels/open5gs-satellite/opensat-wrapper
+
+SCRIPT_PATH="$(dirname "$(realpath "$0")")/cli/opensat.py"
+
+case "$1" in
+  net|ctun|dtun|syscls|sysinit|pscls)
+    # need sudo
+    sudo "$SCRIPT_PATH" "$@"
+    ;;
+  *)
+    # no need sudo
+    "$SCRIPT_PATH" "$@"
+    ;;
+esac
