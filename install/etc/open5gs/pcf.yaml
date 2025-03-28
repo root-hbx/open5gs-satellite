@@ -1,4 +1,4 @@
-# db_uri: mongodb://localhost/open5gs
+db_uri: mongodb://localhost/open5gs # uncomment!
 logger:
   file:
     path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/pcf.log
