@@ -1,8 +1,8 @@
-# OpenSat: Open5gs for Satellite Networks
+# OpenSat: Open5gs Simulator for Satellite Networks
 
 This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
-There are 2 branch:
+Currently, there are 2 branch:
 
 - `stable`: ensure stability
   - all config files are unmodified
@@ -12,6 +12,29 @@ There are 2 branch:
   - some errors when testing func and modules in Open5GS User's Guide, no worry
 
 ## Quick Start
+
+**(0) Prequisites for OpenSat**
+
+```sh
+cd $OPEN5GS_SATELLITE
+# create and activate pyvenv for opensat
+python3 -m venv .venv
+source activate-opensat
+# now you can use `opensat` command
+opensat -h
+```
+
+example:
+
+```sh
+parallels@ubuntu-linux-2404:~/open5gs-satellite$ source activate-opensat 
+OpenSat environment activated. You can now use the 'opensat' command.
+Run 'opensat help' to see available commands.
+(.venv) parallels@ubuntu-linux-2404:~/open5gs-satellite$ opensat -v
+
+OpenSAT version 0.1.0
+Copyright (C) 2025 OpenSat Boxuan Hu <huboxuan2004@gmail.com>
+```
 
 **(1) Skeleton**
 
@@ -39,7 +62,7 @@ Follow [Roaming: Roaming Test on a Single Host](https://open5gs.org/open5gs/docs
   - Visited Network: open multiple windows, keep running for observation
   - Performs a test of UE access while roaming subscribed to H-PLMN
 
-**Warning: Something You Should Know Before Conducting Research**
+**Warning: Something You Should Know Before Using OpenSat**
 
 (1) Every time you `git pull`, you need to rebuild the whole system:
 
@@ -57,21 +80,15 @@ ninja -C build
 (2) Every time you restart your experiment device (PC/VM/Server...), you have to reconfigure the networks:
 
 ```sh
-sudo ip tuntap add name ogstun mode tun
-sudo ip addr add 10.45.0.1/16 dev ogstun
-sudo ip addr add 2001:db8:cafe::1/48 dev ogstun
-sudo ip link set ogstun up
+# initialize opensat system: net | tun | db
+opensat sysinit
 ```
 
-```sh
-sudo sysctl -w net.ipv4.ip_forward=1
-sudo sysctl -w net.ipv6.conf.all.forwarding=1
-sudo iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
-sudo ip6tables -t nat -A POSTROUTING -s 2001:db8:cafe::/48 ! -o ogstun -j MASQUERADE
-```
+(3) Every time you finish your experiments, please deconstruct all open5gs resources:
 
 ```sh
-sudo ufw disable
+# cleanup all opensat resources: ps | tun | db 
+opensat syscls
 ```
 
 ## Development
@@ -109,3 +126,5 @@ Coming Soon...
 ## Contributing
 
 We welcome all contributions to the project! See [CONTRIBUTING](./CONTRIBUTING.md) for how to get involved.
+
+Copyright (C) 2025 OpenSat Boxuan Hu <huboxuan2004@gmail.com>
