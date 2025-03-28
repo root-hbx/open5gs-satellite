@@ -60,6 +60,24 @@ class NetworkConfig:
             sys.exit(1)
             
         try:
+            # Check if the interface already exists
+            result = subprocess.run(
+                ["ip", "link", "show", "ogstun"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                check=False
+            )
+
+            if result.returncode == 0:
+                logging.info("Interface 'ogstun' already exists. Removing it first...")
+                try:
+                    del_ins = NetworkConfig()
+                    del_ins.delete_utun()
+                    logging.info("Successfully removed existing ogstun interface.")
+                except subprocess.SubprocessError as e:
+                    logging.error(f"Error removing existing ogstun interface: {e}")
+                    logging.error("Attempting to proceed with creation anyway...")
+
             logging.info("Creating TUN device 'ogstun'...")
             subprocess.run(["ip", "tuntap", "add", "name", "ogstun", "mode", "tun"], check=True)
             
