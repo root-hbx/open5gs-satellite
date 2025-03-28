@@ -1,8 +1,15 @@
 # OpenSat: Open5gs Simulator for Satellite Networks
 
-![CI](https://github.com/root-hbx/open5gs-satellite/actions/workflows/meson-ci.yml/badge.svg)
-
-![Codecov](https://codecov.io/gh/root-hbx/open5gs-satellite/branch/mm-roam/graph/badge.svg)
+<p align="center">
+    <!-- use https://shields.io/badges/git-hub-contributors -->
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite">
+    <!-- use https://shields.io/badges/git-hub-actions-workflow-status -->
+    <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/root-hbx/open5gs-satellite/meson-ci.yml">
+    <!-- use https://shields.io/badges/git-hub-license -->
+    <img alt="GitHub License" src="https://img.shields.io/github/license/root-hbx/open5gs-satellite">
+    <!-- use https://shields.io/badges/git-hub-repo-stars -->
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/root-hbx/open5gs-satellite">
+</p>
 
 ------
 
