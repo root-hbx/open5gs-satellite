@@ -20,7 +20,7 @@ amf:
         - uri: http://127.0.0.200:7777
   ngap:
     server:
-      - address: 127.0.0.5
+      - address: 172.16.162.137 # ens33 of open5gs machine # 127.0.0.5
   metrics:
     server:
       - address: 127.0.0.5
