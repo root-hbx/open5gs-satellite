@@ -1,4 +1,6 @@
-# OpenSat: Open5gs Simulator for Satellite Networks
+<h1 align="center">
+    OpenSat: Open5gs Simulator for Satellite Networks
+</h1>
 
 <p align="center">
     <!-- use https://shields.io/badges/git-hub-contributors -->
