@@ -45,5 +45,7 @@ fi
 chmod +x "${PROJECT_ROOT}/opensat-wrapper"
 alias opensat="${PROJECT_ROOT}/opensat-wrapper"
 
+#TODO(bxhu): add opensat command auto-complete
+
 echo "OpenSat environment activated. You can now use the 'opensat' command."
 echo "Run 'opensat help' to see available commands."
