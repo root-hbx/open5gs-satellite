@@ -12,6 +12,12 @@ In this process:
 
 ## Environments and Devices
 
+**Coding Repo**
+
+- [open5gs-satellite](https://github.com/root-hbx/open5gs-satellite): independent
+- [ueransim-satellite](https://github.com/root-hbx/ueransim-satellite): independent
+- [free5gc](https://github.com/root-hbx/free5gc): forked
+
 **Physical Machine** 
 
 Linux bxhu-ThinkBook-16-G4-IAP Ubuntu24.04LTS
@@ -21,19 +27,19 @@ Linux bxhu-ThinkBook-16-G4-IAP Ubuntu24.04LTS
 VMware Workstation 17
 
 - VM1: for open5gs
-    - `open5gs@open5gs`
+    - `open5gs@open5gs`: installed with [open5gs-satellite](https://github.com/root-hbx/open5gs-satellite)
     - Memory: 12GB
     - Processors: 8
     - Network Adapter 1: NAT
     - Network Adapter 2: Host-Only
 - VM2: for UERANSIM
-    - `ueransim@ueransim`
+    - `ueransim@ueransim`: installed with [ueransim-satellite](https://github.com/root-hbx/ueransim-satellite)
     - Memory: 4GB
     - Processors: 2
     - Network Adapter 1: NAT
     - Network Adapter 2: Host-Only
 - VM3: just for test
-    - `free5gc@free5gc`
+    - `free5gc@free5gc`: installed with [free5gc](https://github.com/root-hbx/free5gc)
     - Memory: 2GB
     - Processors: 2
     - Network Adapter 1: NAT
@@ -80,7 +86,7 @@ Hence, there are 2 main configurations:
 
 ### Part 1: gNodeB Config
 
-(1) vim open5gs-satellite/etc/open5gs/amf.yaml
+**(1) vim open5gs-satellite/etc/open5gs/amf.yaml**
 
 Prev:
 
@@ -98,7 +104,7 @@ ngap:
       - address: 172.16.122.135 # ens37 (HostOnly) of open5gs machine
 ```
 
-(2) vim ~/UERANSIM/config/open5gs-gnb.yaml
+**(2) vim ~/UERANSIM/config/open5gs-gnb.yaml**
 
 Prev:
 
@@ -126,7 +132,7 @@ amfConfigs:
     port: 38412
 ```
 
-(3) test
+**(3) test**
 
 ```sh
 cd UERANSIM
@@ -167,7 +173,7 @@ opensat sysinit
 
 ### Part 2: UE Config
 
-(1) vim open5gs-satellite/etc/open5gs/upf.yaml
+**(1) vim open5gs-satellite/etc/open5gs/upf.yaml**
 
 Prev:
 
@@ -191,7 +197,7 @@ Modified:
           gateway: 10.45.0.1
 ```
 
-(2) register on Open5GS WebUI
+**(2) register on Open5GS WebUI**
 
 ```sh
 cd open5gs-satellite
@@ -215,7 +221,7 @@ Then click `save`, now we have:
 
 Now UE config is okey!
 
-(3) test
+**(3) test**
 
 ```sh
 cd UERANSIM
@@ -241,4 +247,9 @@ ping -I uertun0 172.16.162.135 # ens33 (data-interface) of free5gc on my physica
 If the output shows like this, then we are all good!
 
 ![alt text](./image/end2end-ter-4.png)
+
+## Test with WireShark
+
+#TODO(bxhu)
+
 
