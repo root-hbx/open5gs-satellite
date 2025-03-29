@@ -82,7 +82,16 @@ Hence, there are 2 main configurations:
     - `vim open5gs-satellite/etc/open5gs/upf.yaml`
     - test with `sudo build/nr-ue -c config/open5gs-ue.yaml`
 
-## How to Config
+## Walkthrough
+
+```sh
+# open5gs-satellite
+cd open5gs-satellite
+git checkout tcpgen
+# ueransim-satellite
+cd ueransim-satellite
+git checkout open5gs
+```
 
 ### Part 1: gNodeB Config
 
@@ -132,17 +141,6 @@ amfConfigs:
     port: 38412
 ```
 
-**(3) test**
-
-```sh
-cd UERANSIM
-build/nr-gnb -c config/open5gs-gnb.yaml
-```
-
-If the output shows like this, then we are all good in Part 1:
-
-![alt text](./image/end2end-ter-2.png)
-
 After this, please start all service processes on Open5GS:
 
 ```sh
@@ -151,7 +149,7 @@ cd open5gs-satellite
 source activate-opensat
 opensat syscls
 opensat sysinit
-# Start Services
+# Start Services (17/17)
 ./install/bin/open5gs-nrfd
 ./install/bin/open5gs-scpd
 ./install/bin/open5gs-seppd -c ./install/etc/open5gs/sepp1.yaml
@@ -170,6 +168,17 @@ opensat sysinit
 ./install/bin/open5gs-hssd
 ./install/bin/open5gs-pcrfd
 ```
+
+**(3) test**
+
+```sh
+cd ueransim-satellite
+build/nr-gnb -c config/open5gs-gnb.yaml
+```
+
+If the output shows like this, then we are all good in Part 1:
+
+![alt text](./image/end2end-ter-2.png)
 
 ### Part 2: UE Config
 
@@ -224,7 +233,7 @@ Now UE config is okey!
 **(3) test**
 
 ```sh
-cd UERANSIM
+cd ueransim-satellite
 sudo build/nr-ue -c config/open5gs-ue.yaml
 ```
 
@@ -248,8 +257,106 @@ If the output shows like this, then we are all good!
 
 ![alt text](./image/end2end-ter-4.png)
 
-## Test with WireShark
+## Interact with WireShark
 
-#TODO(bxhu)
+- Keep the last 2 terminals running gNB and UE opened.
 
+- Open another terminal and logged in to the UERANSIM VM and run below commands to store the data packets.
+
+```sh
+# change ip field with your UERANSIM IP.
+# change the file name where you want to store packets.
+sudo tcpdump host <ip> -i any -w <file-name>.pcap
+# for my config, it's:
+sudo tcpdump host 172.16.122.133 -i any -w open5gs-ueransim-1.pcap
+```
+
+Then, download the `.pcap` packages to physical machine (by `vscode`, `scp`, .etc)
+
+```sh
+ueransim@ueransim:~/ueransim-satellite$ ls
+CMakeLists.txt  CONTRIBUTING.md  LICENSE  README.md  build  cmake-build-release  config  makefile  open5gs-ueransim-1.pcap  src  tools
+```
+
+After sometime, stop the terminal running `sudo tcpdump host <ip> -i any -w <file-name>.pcap command`.
+
+The packets are stored in the `.pcap` file. Open the downloaded file on physical machine via wireshark. You can see the flow of data packets and protocols used:
+
+![alt text](./image/end2end-ter-8.png)
+
+## Basic Workflow
+
+In fact, it is unnecessary to undergo extensive configuration and testing procedures each time (refer to Walkthrough above). 
+
+Following the initial walkthrough, we have completed the entire configuration and stored these config files in the corresponding branch. 
+
+Subsequently, our workflow is structured as follows:
+
+(1) Prerequisites:
+
+```sh
+# open5gs-satellite
+cd open5gs-satellite
+git checkout tcpgen
+# ueransim-satellite
+cd ueransim-satellite
+git checkout open5gs
+```
+
+```sh
+# window 0: init and register
+# on open5gs VM
+# - initialize for system
+source activate-opensat
+opensat syscls
+opensat sysinit
+# - register for UE
+cd webui
+npm run dev
+```
+
+(2) Test and get `uertun0`:
+
+```sh
+# window 1: all open5gs services
+# on open5gs VM
+./install/bin/open5gs-nrfd
+./install/bin/open5gs-scpd
+./install/bin/open5gs-seppd -c ./install/etc/open5gs/sepp1.yaml
+./install/bin/open5gs-amfd
+./install/bin/open5gs-smfd
+./install/bin/open5gs-upfd
+./install/bin/open5gs-ausfd
+./install/bin/open5gs-udmd
+./install/bin/open5gs-pcfd
+./install/bin/open5gs-nssfd
+./install/bin/open5gs-bsfd
+./install/bin/open5gs-udrd
+./install/bin/open5gs-mmed
+./install/bin/open5gs-sgwcd
+./install/bin/open5gs-sgwud
+./install/bin/open5gs-hssd
+./install/bin/open5gs-pcrfd
+```
+
+```sh
+# window 2:
+# on ueransim VM
+cd ueransim-satellite
+build/nr-gnb -c config/open5gs-gnb.yaml
+```
+
+```sh
+# window 3:
+# on ueransim VM
+cd ueransim-satellite
+sudo build/nr-ue -c config/open5gs-ue.yaml
+```
+
+```sh
+# window 4:
+# on ueransim VM
+ifconfig
+# you can also use wireshark here ;)
+```
 
