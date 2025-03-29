@@ -17,7 +17,7 @@ upf:
 #        - address: 127.0.0.4
   gtpu:
     server:
-      - address: 127.0.0.7
+      - address: 172.16.122.135 # ens34(HostOnly) of open5gs machine # 127.0.0.7
   session:
     - subnet: 10.45.0.0/16
       gateway: 10.45.0.1
