@@ -1,4 +1,4 @@
-# End2End TraficGen Instances (Terrestrial)
+# End2End TrafficGen Instances (Terrestrial)
 
 > Conducting End-to-End Terrestrial Traffic Generation Testing Based on OpenSat
 
