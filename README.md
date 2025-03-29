@@ -118,7 +118,7 @@ opensat syscls
 
 For Integrated Space-Terrestrial Network (ISTN), focusing on mobility management of satellite networks.
 
-Details can be checked [here](./docs/exp/dev.md)
+Details can be checked [here](./docs/exp/dev.md).
 
 ## Contributing
 
