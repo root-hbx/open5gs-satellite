@@ -4,8 +4,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./docs/opensat.svg">
-    <img alt="OpenSat" src="./docs/opensat.svg" width=25%>
+    <source media="(prefers-color-scheme: dark)" srcset="./docs/opensat.png">
+    <img alt="OpenSat" src="./docs/opensat.png" width=25%>
   </picture>
 </p>
 
