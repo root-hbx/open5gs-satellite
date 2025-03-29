@@ -17,7 +17,7 @@
 
 This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
-Currently, there are 2 branch:
+Currently, there are several branch:
 
 - `stable`: ensure stability
   - all config files are unmodified
@@ -25,10 +25,18 @@ Currently, there are 2 branch:
 - `mm-roam`: nightly built
   - config files are modified with the requirement of 5G Roaming
   - some errors when testing func and modules in Open5GS User's Guide, no worry
+- `tcpgen`: interact with UERANSIM
+  - working on "End2End Terrestrial TrafficGen" experiments
+
+There are some testing platforms interacting closely with OpenSat:
+
+- [open5gs-satellite](https://github.com/root-hbx/open5gs-satellite): independent
+- [ueransim-satellite](https://github.com/root-hbx/ueransim-satellite): independent
+- [free5gc](https://github.com/root-hbx/free5gc): forked
 
 ## Quick Start
 
-**(0) Prequisites for OpenSat**
+**(0) Prerequisites for OpenSat**
 
 ```sh
 cd $OPEN5GS_SATELLITE
@@ -112,7 +120,7 @@ For Integrated Space-Terrestrial Network (ISTN), focusing on mobility management
 
 ### End2End TraficGen Instances (Terrestrial)
 
-> Conducting End-to-End Traffic Generation Testing Based on this Framework
+> Conducting End-to-End Traffic Generation Testing Based on OpenSat
 
 For a user equipment (UE) in a 5G core network, we aim to traverse the core network and reach a server in the wide-area network (WAN) to establish a connection and conduct traffic testing.
 
@@ -121,6 +129,8 @@ In this process:
 1. Network traffic can be captured and analyzed using **Wireshark** or **Traceroute** to determine the traffic path.  
 2. The 5G core network is implemented using **Open5GS**.  
 3. The UE can be either an **Open5GS-native component** or simulated using **UERANSIM**.
+
+Details can be checked [here](./docs/exp/end2end-ter.md).
 
 ### End2End TrafficGen Instances (Satellite)
 
