@@ -3,6 +3,13 @@
 </h1>
 
 <p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./docs/opensat.png">
+    <img alt="OpenSat" src="./docs/opensat.png" width=25%>
+  </picture>
+</p>
+
+<p align="center">
     <!-- use https://shields.io/badges/git-hub-contributors -->
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite">
     <!-- use https://shields.io/badges/git-hub-actions-workflow-status -->
