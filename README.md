@@ -17,7 +17,7 @@
 
 This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
-Currently, there are 2 branch:
+Currently, there are several branch:
 
 - `stable`: ensure stability
   - all config files are unmodified
@@ -25,10 +25,18 @@ Currently, there are 2 branch:
 - `mm-roam`: nightly built
   - config files are modified with the requirement of 5G Roaming
   - some errors when testing func and modules in Open5GS User's Guide, no worry
+- `tcpgen`: interact with UERANSIM
+  - working on "End2End Terrestrial TrafficGen" experiments
+
+There are some testing platforms interacting closely with OpenSat:
+
+- [open5gs-satellite](https://github.com/root-hbx/open5gs-satellite): independent
+- [ueransim-satellite](https://github.com/root-hbx/ueransim-satellite): independent
+- [free5gc](https://github.com/root-hbx/free5gc): forked
 
 ## Quick Start
 
-**(0) Prequisites for OpenSat**
+**(0) Prerequisites for OpenSat**
 
 ```sh
 cd $OPEN5GS_SATELLITE
