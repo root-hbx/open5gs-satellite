@@ -82,3 +82,8 @@ class ProcessConfig:
         except Exception as e:
             logging.error(f"Error during process cleanup: {e}")
             sys.exit(1)
+
+    def start_all_process(self):
+        #TODO(bxhu): opensat psup
+        # all 17 services
+        pass

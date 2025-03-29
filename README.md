@@ -62,7 +62,7 @@ OpenSat environment activated. You can now use the 'opensat' command.
 Run 'opensat help' to see available commands.
 (.venv) parallels@ubuntu-linux-2404:~/open5gs-satellite$ opensat -v
 
-OpenSAT version 0.1.0
+OpenSat version 0.1.0
 Copyright (C) 2025 OpenSat Boxuan Hu <huboxuan2004@gmail.com>
 ```
 
