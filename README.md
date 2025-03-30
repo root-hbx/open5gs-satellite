@@ -12,7 +12,11 @@
 <p align="center">
 
 <!-- use https://shields.io/badges/git-hub-contributors -->
-<img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite">
+<!-- <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite"> -->
+
+<a href="https://github.com/root-hbx/open5gs-satellite/blob/mm-roam/docs/exp/start.md">
+  <img alt="Documentation" src="https://img.shields.io/badge/docs-gray?logo=readthedocs&logoColor=f5f5f5">
+</a>
 
 <!-- use https://shields.io/badges/git-hub-actions-workflow-status -->
 <img alt="Workflow Status" src="https://img.shields.io/github/actions/workflow/status/root-hbx/open5gs-satellite/meson-ci.yml">
