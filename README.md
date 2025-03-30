@@ -14,10 +14,6 @@
 <!-- use https://shields.io/badges/git-hub-contributors -->
 <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite">
 
-<a href="https://github.com/root-hbx/open5gs-satellite/releases">
-  <img src="https://img.shields.io/github/release/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Release">
-</a>
-
 <!-- use https://shields.io/badges/git-hub-actions-workflow-status -->
 <img alt="Workflow Status" src="https://img.shields.io/github/actions/workflow/status/root-hbx/open5gs-satellite/meson-ci.yml">
 
