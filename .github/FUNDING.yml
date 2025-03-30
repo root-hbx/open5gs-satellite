@@ -1,10 +1,10 @@
 # These are supported funding model platforms
 
 #github: [acetcom, open5gs]
-github: acetcom, root-hbx
+github: [acetcom, root-hbx]
 #patreon: # Replace with a single Patreon username
-open_collective: open5gs, open5gs-satellite
-#ko_fi: # Replace with a single Ko-fi username
+# open_collective: [open5gs, open5gs-satellite]
+ko_fi: root_hbx # Replace with a single Ko-fi username
 #tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
 #community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
 #liberapay: # Replace with a single Liberapay username
