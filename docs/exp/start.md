@@ -14,7 +14,7 @@ I just provide one tutorial about [VMware 17 Installation](https://blog.bxhu2004
 
 Install 3 virtual machines via VMware Workstation:
 
-**How to install a ubuntu server via VMware**
+### How to install a ubuntu server via VMware
 
 [tutorial (CN)](https://blog.bxhu2004.com/BLOG/Linux/ubuntu-server/)
 
@@ -24,7 +24,7 @@ It is strongly advisable to ensure that all configuration details align with tho
 
 >This consistency will mitigate potential discrepancies during subsequent operations, including issues related to absolute paths.
 
-**VM1: open5gs**
+### VM1: open5gs
 
 Hardware Settings (in VMware dashboard):
 
@@ -57,7 +57,7 @@ network:
       addresses: [172.16.122.135/24] # prev: nothing this line
 ```
 
-**VM2: free5gc**
+### VM2: free5gc
 
 Hardware Settings (in VMware dashboard):
 
@@ -90,7 +90,7 @@ network:
   version: 2
 ```
 
-**VM3: ueransim**
+### VM3: ueransim
 
 Hardware Settings (in VMware dashboard):
 
