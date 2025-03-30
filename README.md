@@ -10,21 +10,30 @@
 </p>
 
 <p align="center">
-    <!-- use https://shields.io/badges/git-hub-contributors -->
-    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite">
-    <!-- use https://shields.io/badges/git-hub-actions-workflow-status -->
-    <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/root-hbx/open5gs-satellite/meson-ci.yml">
-    <!-- use https://shields.io/badges/git-hub-license -->
-    <img alt="GitHub License" src="https://img.shields.io/github/license/root-hbx/open5gs-satellite">
-    <!-- use https://shields.io/badges/git-hub-repo-stars -->
-    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/root-hbx/open5gs-satellite">
+
+<!-- use https://shields.io/badges/git-hub-contributors -->
+<img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite">
 
 <a href="https://github.com/root-hbx/open5gs-satellite/releases">
   <img src="https://img.shields.io/github/release/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Release">
 </a>
+
+<!-- use https://shields.io/badges/git-hub-actions-workflow-status -->
+<img alt="Workflow Status" src="https://img.shields.io/github/actions/workflow/status/root-hbx/open5gs-satellite/meson-ci.yml">
+
 <a href="https://github.com/root-hbx/open5gs-satellite/issues">
   <img src="https://img.shields.io/github/issues/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Issues">
 </a>
+
+<a href="https://github.com/root-hbx/open5gs-satellite/pulls">
+  <img src="https://img.shields.io/github/pulls/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Pull Requests">
+</a>
+
+<!-- use https://shields.io/badges/git-hub-license -->
+<img alt="License" src="https://img.shields.io/github/license/root-hbx/open5gs-satellite">
+
+<!-- use https://shields.io/badges/git-hub-repo-stars -->
+<img alt="Repo Stars" src="https://img.shields.io/github/stars/root-hbx/open5gs-satellite">
 
 </p>
 
