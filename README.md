@@ -26,7 +26,7 @@
 </a>
 
 <a href="https://github.com/root-hbx/open5gs-satellite/pulls">
-  <img src="https://img.shields.io/github/pulls/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Pull Requests">
+  <img src="https://img.shields.io/github/issues-pr/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Pull Requests">
 </a>
 
 <!-- use https://shields.io/badges/git-hub-license -->
