@@ -11,7 +11,11 @@ from network import NetworkConfig
 from ps import ProcessConfig
 
 # Import custom modules
-from others import handle_error_cmd, cleanup_sys, show_custom_help, show_version_info, init_sys
+from others import (
+    handle_error_cmd, cleanup_sys, 
+    show_custom_help, show_version_info, 
+    init_sys
+)
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
@@ -60,7 +64,8 @@ def main():
     dtun_parser = subparsers.add_parser('dtun', help='Delete virtual network tunnel')
     net_parser = subparsers.add_parser('net', help='Network operations')
     ps_parser = subparsers.add_parser('ps', help='Process status')
-    psc_parser = subparsers.add_parser('pscls', help='Process control')
+    psu_parser = subparsers.add_parser('psup', help='Process start')
+    psc_parser = subparsers.add_parser('pscls', help='Process cleanup')
     cls_parser = subparsers.add_parser('syscls', help='Cleanup operations')
     init_parser = subparsers.add_parser('sysinit', help='System initialization')
 
@@ -102,6 +107,10 @@ def main():
         # opensat ps
         ps_handler = ProcessConfig()
         ps_handler.show_process_status()
+    elif args.command == 'psup':
+        # opensat psup
+        ps_handler = ProcessConfig()
+        ps_handler.start_all_process()
     elif args.command == 'pscls':
         # opensat pscls
         psc_handler = ProcessConfig()
