@@ -5,6 +5,8 @@ import sys
 import os
 import logging
 
+OPENSAT_CWD = "/home/open5gs/open5gs-satellite"
+
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 class ProcessConfig:
@@ -31,6 +33,7 @@ class ProcessConfig:
         except subprocess.SubprocessError as e:
             logging.error(f"Error showing process status: {e}")
             sys.exit(1)
+
 
     def clear_all_process(self):
         """Terminate all Open5GS processes"""
@@ -82,3 +85,74 @@ class ProcessConfig:
         except Exception as e:
             logging.error(f"Error during process cleanup: {e}")
             sys.exit(1)
+
+
+    def start_all_process(self):
+        """Start all Open5GS service processes"""
+        print("Starting all Open5GS processes...")
+        
+        # Get current working directory and change to Open5GS directory
+        print("[Switching to OpenSat directory]")
+        current_dir = os.getcwd() # current path
+        os.chdir(OPENSAT_CWD) # switch to OPENSAT_CWD to execute Open5GS processes
+
+        # Define processes to start in sequence
+        process_list = [
+            "./install/bin/open5gs-nrfd",
+            "./install/bin/open5gs-scpd",
+            ["./install/bin/open5gs-seppd", "-c", "./install/etc/open5gs/sepp1.yaml"],
+            "./install/bin/open5gs-amfd",
+            "./install/bin/open5gs-smfd",
+            "./install/bin/open5gs-upfd",
+            "./install/bin/open5gs-ausfd",
+            "./install/bin/open5gs-udmd", 
+            "./install/bin/open5gs-pcfd",
+            "./install/bin/open5gs-nssfd",
+            "./install/bin/open5gs-bsfd",
+            "./install/bin/open5gs-udrd",
+            "./install/bin/open5gs-mmed",
+            "./install/bin/open5gs-sgwcd",
+            "./install/bin/open5gs-sgwud",
+            "./install/bin/open5gs-hssd",
+            "./install/bin/open5gs-pcrfd"
+        ]
+        
+        successful_count = 0
+        
+        try:
+            for process in process_list:
+                if isinstance(process, list):
+                    # for [list] formed processes
+                    proc_name = os.path.basename(process[0])
+                    cmd = process
+                else:
+                    # for string formed processes
+                    proc_name = os.path.basename(process)
+                    cmd = [process]
+                    
+                logging.info(f"Starting {proc_name}...")
+                try:
+                    # Use Popen to create background processes
+                    subprocess.Popen(
+                        cmd,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        start_new_session=True
+                    )
+                    
+                    successful_count += 1
+                    
+                    # Add short delay to ensure sequential startup
+                    subprocess.run(["sleep", "0.5"], check=False)
+                    
+                except subprocess.SubprocessError as e:
+                    logging.error(f"Warning: Unable to start {proc_name}: {e}")
+            
+            logging.info(f"Processes startup complete. Successfully started {successful_count} / 17 processes.")
+        except Exception as e:
+            logging.error(f"Error during process startup: {e}")
+            sys.exit(1)
+        finally:
+            # Restore original working directory
+            print("[Back to current directory]")
+            os.chdir(current_dir)

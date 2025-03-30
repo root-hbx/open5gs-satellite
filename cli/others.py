@@ -16,21 +16,28 @@ def init_sys():
     print("Initializing all open5gs resources...")
 
     logging.info("==================================================================")
-    logging.info("Creating open5gs network interfaces...")
+    logging.info("Creating open5gs network interfaces")
+    logging.info("==================================================================")
+    tun_ins = NetworkConfig()
+    tun_ins.create_utun() # utun config: opensat ctun
+
+    print()
+    
+    logging.info("==================================================================")
+    logging.info("Open5gs network config")
     logging.info("==================================================================")
     net_ins = NetworkConfig()
     net_ins.config_network() # net config: opensat net
-    net_ins.create_utun() # utun config: opensat ctun
 
     print()
 
-    logging.info("==================================================================")
-    logging.info("Restart open5gs database...")
-    logging.info("==================================================================")
-    db_ins = Database()
-    db_ins.clear_mongodb() # clear mongodb: opensat dbcls
+    # logging.info("==================================================================")
+    # logging.info("Restart open5gs database...")
+    # logging.info("==================================================================")
+    # db_ins = Database()
+    # db_ins.clear_mongodb() # clear mongodb: opensat dbcls
     
-    print()
+    # print()
     
     print("====================================================")
     print("All open5gs resources have been initialized!")
@@ -42,7 +49,7 @@ def cleanup_sys():
     print("Cleaning up all open5gs resources...")
 
     logging.info("==================================================================")
-    logging.info("Cleaning up open5gs network interfaces...")
+    logging.info("Cleaning up open5gs network interfaces")
     logging.info("==================================================================")
     net_ins = NetworkConfig()
     net_ins.delete_utun() # utun config: opensat dtun
@@ -50,7 +57,7 @@ def cleanup_sys():
     print()
 
     logging.info("==================================================================")
-    logging.info("Cleaning up open5gs processes...")
+    logging.info("Cleaning up open5gs processes")
     logging.info("==================================================================")
     ps_ins = ProcessConfig()
     ps_ins.clear_all_process() # ps clear: opensat pscls
@@ -58,7 +65,7 @@ def cleanup_sys():
     print()
 
     logging.info("==================================================================")
-    logging.info("Cleaning up open5gs database...")
+    logging.info("Cleaning up open5gs database")
     logging.info("==================================================================")
     db_ins = Database()
     db_ins.clear_mongodb() # mongodb clear: opensat dbcls
@@ -77,20 +84,21 @@ def show_custom_help():
     print("  -h, help              Show all functionality")
     print("  -v, version           Show version")
     print("  db                    Into MongoDB Shell")
-    print("  dbshow                Open5GS Database Demonstration")
-    print("  dbcls                 Open5GS Database Cleanup")
+    print("  dbshow                Open5GS database demonstration")
+    print("  dbcls                 Open5GS database cleanup")
     print("  ctun                  Create virtual network tunnel")
     print("  dtun                  Delete virtual network tunnel")
     print("  net                   Network configuration")
     print("  ps                    Show all open5gs process status")
-    print("  pscls                 Open5gs process control")
+    print("  psup                  Start all open5gs services as daemons")
+    print("  pscls                 Open5gs process cleanup")
     print("  sysinit               Initialize all open5gs resources (net, tun, db)")
     print("  syscls                Clear all open5gs resources (ps, tun, db)")
     print()
 
+
 def show_version_info():
     '''show version info and copyright'''
-    print("\nOpenSAT version 0.1.0")
+    print("\nOpenSat version 0.1.0")
     print("Copyright (C) 2025 OpenSat Boxuan Hu <huboxuan2004@gmail.com>")
     print()
-
