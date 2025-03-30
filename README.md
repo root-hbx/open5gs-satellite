@@ -18,6 +18,14 @@
     <img alt="GitHub License" src="https://img.shields.io/github/license/root-hbx/open5gs-satellite">
     <!-- use https://shields.io/badges/git-hub-repo-stars -->
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/root-hbx/open5gs-satellite">
+
+<a href="https://github.com/root-hbx/open5gs-satellite/releases">
+  <img src="https://img.shields.io/github/release/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Release">
+</a>
+<a href="https://github.com/root-hbx/open5gs-satellite/issues">
+  <img src="https://img.shields.io/github/issues/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Issues">
+</a>
+
 </p>
 
 ------
