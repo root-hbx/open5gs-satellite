@@ -14,7 +14,7 @@ from ps import ProcessConfig
 from others import (
     handle_error_cmd, cleanup_sys, 
     show_custom_help, show_version_info, 
-    init_sys, meson_build
+    init_sys
 )
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
@@ -68,7 +68,6 @@ def main():
     psc_parser = subparsers.add_parser('pscls', help='Process cleanup')
     cls_parser = subparsers.add_parser('syscls', help='Cleanup operations')
     init_parser = subparsers.add_parser('sysinit', help='System initialization')
-    meson_parser = subparsers.add_parser('meson', help='Meson build')
 
     # Parse arguments
     args = parser.parse_args()
@@ -122,9 +121,6 @@ def main():
     elif args.command == 'syscls':
         # opensat cls
         cleanup_sys()
-    elif args.command == 'meson':
-        # opensat meson
-        meson_build()
     else:
         pass # handled by CustomArgumentParser::error()
 
