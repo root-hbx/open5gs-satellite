@@ -43,7 +43,7 @@ There are some testing platforms interacting closely with OpenSat:
 
 ## Prerequisites for OpenSat
 
-Details can be checked at [pre-opensat doc](./docs/exp/start.md)
+Details can be checked at [pre-opensat doc](./docs/exp/start.md).
 
 ## Quick Start
 
