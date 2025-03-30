@@ -41,6 +41,10 @@ There are some testing platforms interacting closely with OpenSat:
 - [ueransim-satellite](https://github.com/root-hbx/ueransim-satellite): independent
 - [free5gc](https://github.com/root-hbx/free5gc): forked
 
+## Prerequisites for OpenSat
+
+Details can be checked at [pre-opensat doc](./docs/exp/start.md).
+
 ## Quick Start
 
 **(0) Prerequisites for OpenSat**
@@ -52,18 +56,6 @@ python3 -m venv .venv
 source activate-opensat
 # now you can use `opensat` command
 opensat -h
-```
-
-example:
-
-```sh
-parallels@ubuntu-linux-2404:~/open5gs-satellite$ source activate-opensat 
-OpenSat environment activated. You can now use the 'opensat' command.
-Run 'opensat help' to see available commands.
-(.venv) parallels@ubuntu-linux-2404:~/open5gs-satellite$ opensat -v
-
-OpenSat version 0.1.0
-Copyright (C) 2025 OpenSat Boxuan Hu <huboxuan2004@gmail.com>
 ```
 
 **(1) Skeleton**
