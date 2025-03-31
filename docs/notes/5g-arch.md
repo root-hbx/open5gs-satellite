@@ -39,6 +39,8 @@ Core Concepts:
 |DN|Data Network|数据网络|
 |NF|Network Function|网络功能服务|
 
+⚠️ PDU (Protocol Data Unit): 指的是协议数据单元。在PDU会话（PDU Session）上下文中，它代表用户设备（UE）与数据网络（DN，Data Network）之间建立的数据传输通道
+
 ------
 
 |缩写|全称|中文|注意|
