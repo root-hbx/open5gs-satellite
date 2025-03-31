@@ -55,6 +55,16 @@ Core Concepts:
 |UDM|Unified Data Management|统一数据管理||
 |UDR|Unified Data Repo|统一数据存储库||
 
+## 5G Protocol Stacks
+
+**(1) Control Plane**: the UE-to-AMF and UE-to-SMF protocol stack
+
+![alt text](./image/5g-arch-3.png)
+
+**(2) User Plane**: the UE-to-AMF and UE-to-SMF protocol stack
+
+![alt text](./image/5g-arch-4.png)
+
 ## Open5GS Hierarchy
 
 ![alt text](./image/5g-arch-2.png)
@@ -85,4 +95,19 @@ Besides what we mentioned in previous "Virtualization and SBA" part:
 |:---:|:---:|:---:|:---:|
 |SCP|Service Communication Proxy|服务交流协议|enable indirect communication|
 |SEPP|Security Edge Protection Proxy|安全保障协议|ensure "roaming security"|
+
+## More about 5G
+
+[3GPP 5G System Overview](https://www.3gpp.org/technologies/5g-system-overview)
+
+**3GPP** (3rd Generation Partnership Project，第三代合作伙伴计划) 是一个制定移动通信技术标准的国际组织
+
+3GPP 负责开发和维护移动网络技术标准，包括:
+
+- 2G（GPRS, EDGE）
+- 3G（UMTS, HSPA）
+- 4G（LTE, LTE-Advanced）
+- 5G（NR, 5G Core）
+
+未来的 6G 也可能由 3GPP 牵头制定
 
