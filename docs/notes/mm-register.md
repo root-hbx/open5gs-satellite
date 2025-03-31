@@ -20,7 +20,11 @@ The purpose of registration procedures is to allow UEs to register for specific 
 
 ![alt text](./image/mm-reg-0.png)
 
-**TL;DR** (`path_flow`): UE -> RAN -> New AMF
+**TL;DR** (`path_flow`): 
+
+```
+UE -> RAN -> New AMF
+```
 
 Detailed info can be checked [here](https://free5gc.org/blog/20240119/20240119/#description). We just omit these steps since space limitation.
 
