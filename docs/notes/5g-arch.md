@@ -8,7 +8,7 @@ Before getting started, we’ll spend a moment to learn some basic concepts arou
 
 A deployed 5G network can be succinctly represented by the following diagram, which illustrates the core components and their interactions within the architecture:
 
-![alt text](image.png)
+![alt text](./image/5g-arch-0.png)
 
 In this diagram, **user equipment (UE)** connects to the **core network (5G Core)** via the **Radio Access Network (RAN)**. The core network processes requests from devices in a unified manner before routing them to the internet.
 
@@ -26,7 +26,7 @@ The 5G network architecture standard, **TS 23.501**, defines key network functio
 
 In summary, from a software systems perspective, the **5G core network can be conceptualized as a containerized microservices-based application.**
 
-![alt text](image-1.png)
+![alt text](./image/5g-arch-1.png)
 
 The image above is a typical **non-roaming NFs architecture**.
 
@@ -55,7 +55,7 @@ Core Concepts:
 
 ## Open5GS Hierarchy
 
-![alt text](image-2.png)
+![alt text](./image/5g-arch-2.png)
 
 ### 4G / 5G NSA Core
 
