@@ -97,7 +97,12 @@ UE -> PDU session -> V-UPF (data plane)
 |Latency|High|Low|
 |Security|More Secure|Less Secure|
 
-### PDU Session Establishment
+### 4. PDU Session Establishment
 
 see [original file](https://free5gc.org/blog/20250319/20250319/#4-pdu-session-establishment) for details
 
+## Conclusion
+
+As 5G networks continue to expand, roaming plays a crucial role in enabling seamless connectivity for users traveling outside their home networks. In this article, two primary roaming approaches Home-Routed (HR) and Local Breakout (LBO) are introduced, offering different trade-offs in terms of latency, security, and operational costs.
+
+Currently we are working on this part.
