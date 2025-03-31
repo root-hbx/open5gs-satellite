@@ -60,6 +60,14 @@ There are some testing platforms interacting closely with OpenSat:
 
 ## Prerequisites for OpenSat
 
+**Everything you should know about 5G before getting started**
+
+- [5G Network Overwiew && 5G Architecture](./docs/notes/5g-arch.md)
+- [Mobility Management](./docs/notes/mm-register.md)
+- [5G Roaming (HR and LBO)](./docs/notes/5g-roam.md)
+
+**Your device should be prepared**
+
 Details can be checked at [pre-opensat doc](./docs/exp/start.md).
 
 ## Quick Start
