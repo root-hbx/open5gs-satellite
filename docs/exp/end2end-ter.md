@@ -308,7 +308,6 @@ git checkout open5gs
 # on open5gs VM
 # - initialize for system
 source activate-opensat
-opensat syscls
 opensat sysinit
 # - register for UE
 cd webui
@@ -320,23 +319,7 @@ npm run dev
 ```sh
 # window 1: all open5gs services
 # on open5gs VM
-./install/bin/open5gs-nrfd
-./install/bin/open5gs-scpd
-./install/bin/open5gs-seppd -c ./install/etc/open5gs/sepp1.yaml
-./install/bin/open5gs-amfd
-./install/bin/open5gs-smfd
-./install/bin/open5gs-upfd
-./install/bin/open5gs-ausfd
-./install/bin/open5gs-udmd
-./install/bin/open5gs-pcfd
-./install/bin/open5gs-nssfd
-./install/bin/open5gs-bsfd
-./install/bin/open5gs-udrd
-./install/bin/open5gs-mmed
-./install/bin/open5gs-sgwcd
-./install/bin/open5gs-sgwud
-./install/bin/open5gs-hssd
-./install/bin/open5gs-pcrfd
+opensat psup
 ```
 
 ```sh
@@ -364,14 +347,14 @@ ifconfig
 
 ### traceroute
 
-command:
+Command:
 
 ```sh
 # on ueransim VM
 sudo traceroute -i uesimtun0 baidu.com
 ```
 
-result 1:
+Result 1:
 
 ```
 ueransim@ueransim:~$ sudo traceroute -i uesimtun0 baidu.com
@@ -408,7 +391,7 @@ traceroute to baidu.com (39.156.66.10), 30 hops max, 60 byte packets
 30  * * *
 ```
 
-result 2:
+Result 2:
 
 ```
 ueransim@ueransim:~$ sudo traceroute -s 10.45.0.2 -i uesimtun0 baidu.com
