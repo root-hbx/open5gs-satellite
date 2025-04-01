@@ -360,3 +360,110 @@ ifconfig
 # you can also use wireshark here ;)
 ```
 
+## DataFlow Tracing and Analysis
+
+### traceroute
+
+command:
+
+```sh
+# on ueransim VM
+sudo traceroute -i uesimtun0 baidu.com
+```
+
+result 1:
+
+```
+ueransim@ueransim:~$ sudo traceroute -i uesimtun0 baidu.com
+traceroute to baidu.com (39.156.66.10), 30 hops max, 60 byte packets
+ 1  10.45.0.1 (10.45.0.1)  0.725 ms  0.647 ms  0.568 ms
+ 2  _gateway (172.16.162.2)  0.662 ms  0.613 ms  0.596 ms
+ 3  XiaoQiang (192.168.31.1)  2.268 ms  2.224 ms  2.163 ms
+ 4  115.154.192.1 (115.154.192.1)  5.644 ms  6.670 ms  7.164 ms
+ 5  10.6.11.70 (10.6.11.70)  3.904 ms  3.858 ms  3.809 ms
+ 6  113.200.58.65 (113.200.58.65)  6.320 ms  4.972 ms  4.655 ms
+ 7  123.138.0.61 (123.138.0.61)  4.733 ms 123.139.0.81 (123.139.0.81)  4.146 ms 123.138.0.61 (123.138.0.61)  5.283 ms
+ 8  221.11.0.153 (221.11.0.153)  9.274 ms gi0-1-rtr1-xgx-man.169cnc.net (221.11.0.25)  6.385 ms 221.11.0.169 (221.11.0.169)  25.593 ms
+ 9  219.158.112.21 (219.158.112.21)  47.922 ms * *
+10  219.158.21.254 (219.158.21.254)  25.821 ms * *
+11  221.183.95.57 (221.183.95.57)  27.517 ms  25.638 ms  93.051 ms
+12  221.183.94.41 (221.183.94.41)  121.408 ms  88.801 ms  90.413 ms
+13  221.183.49.122 (221.183.49.122)  121.241 ms * 221.183.49.134 (221.183.49.134)  132.079 ms
+14  111.13.0.174 (111.13.0.174)  132.055 ms * 39.156.27.1 (39.156.27.1)  132.039 ms
+15  * * 39.156.27.1 (39.156.27.1)  132.037 ms
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+```
+
+result 2:
+
+```
+ueransim@ueransim:~$ sudo traceroute -s 10.45.0.2 -i uesimtun0 baidu.com
+traceroute to baidu.com (110.242.68.66), 30 hops max, 60 byte packets
+ 1  10.45.0.1 (10.45.0.1)  1.145 ms  1.239 ms  1.234 ms
+ 2  _gateway (172.16.162.2)  1.351 ms  1.477 ms  1.473 ms
+ 3  XiaoQiang (192.168.31.1)  68.360 ms  68.544 ms  68.339 ms
+ 4  115.154.192.1 (115.154.192.1)  68.733 ms  69.405 ms  68.712 ms
+ 5  10.6.11.70 (10.6.11.70)  68.488 ms  68.478 ms  68.663 ms
+ 6  113.200.58.65 (113.200.58.65)  68.659 ms  72.350 ms  67.315 ms
+ 7  123.138.0.61 (123.138.0.61)  68.277 ms 123.139.0.81 (123.139.0.81)  67.247 ms 123.138.0.61 (123.138.0.61)  68.247 ms
+ 8  221.11.0.161 (221.11.0.161)  68.266 ms * gi0-0-rtr1-xgx-man.169cnc.net (221.11.0.1)  68.241 ms
+ 9  gi0-1-rtr1-dwl-man.169cnc.net (221.11.0.33)  68.969 ms 221.11.0.149 (221.11.0.149)  68.934 ms 221.11.0.169 (221.11.0.169)  68.930 ms
+10  219.158.111.233 (219.158.111.233)  86.128 ms 110.242.66.162 (110.242.66.162)  88.925 ms 219.158.111.233 (219.158.111.233)  86.113 ms
+11  221.194.45.130 (221.194.45.130)  120.266 ms 110.242.66.166 (110.242.66.166)  90.440 ms 221.194.45.134 (221.194.45.134)  90.349 ms
+12  221.194.45.134 (221.194.45.134)  27.370 ms  27.341 ms *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+```
+
+(1) Why the destination IP is different?
+
+This phenomenon is related to DNS resolution, where the domain name "baidu.com" corresponds to multiple IP addresses, and different network environments yield different resolutions.
+
+(2) Why started from 10.45.0.1? (`uesimtun0`'s IP equals to `10.45.0.2`)
+
+This might be due to the device itself still using the default gateway routing, which is out of our expectations.
+
+Even if we specify the `src IP` by `-s 10.45.0.2`, the device still goes from the default `src IP`.
+
+(3) What can we learn from the results above?
+
+Frankly speaking, the result above brings some bad news for us:
+
+- `Gateway (172.16.162.2)`: In our experimental environment, this IP address should not appear because the UPF's NAT interface is `172.16.162.137`.
+
+- `XiaoQiang (192.168.31.1)`: This IP address may belong to a physical machine or host, indicating that data packets are possibly being forwarded through the host's network environment rather than directly through the 5G core network.
+
+Instead of solving this `traceroute` config problem, we can move on with wireshark!!
+
+### wireshark
+
