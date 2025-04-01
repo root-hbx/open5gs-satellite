@@ -438,13 +438,11 @@ This might be due to the device itself still using the default gateway routing, 
 
 Even if we specify the `src IP` by `-s 10.45.0.2`, the device still goes from the default `src IP`.
 
-(3) What can we learn from the results above?
-
-Frankly speaking, the result above brings some bad news for us:
-
-- `Gateway (172.16.162.2)`: In our experimental environment, this IP address should not appear because the UPF's NAT interface is `172.16.162.137`.
-
-- `XiaoQiang (192.168.31.1)`: This IP address may belong to a physical machine or host, indicating that data packets are possibly being forwarded through the host's network environment rather than directly through the 5G core network.
+> [!WARNING]\
+> Frankly speaking, the result above brings some bad news for us:
+> - `Gateway (172.16.162.2)`: In our experimental environment, this IP address should not appear because the UPF's NAT interface is `172.16.162.137`.
+>
+> - `XiaoQiang (192.168.31.1)`: This IP address may belong to a physical machine or host, indicating that data packets are possibly being forwarded through the host's network environment rather than directly through the 5G core network.
 
 Instead of solving this `traceroute` config problem, we can move on with wireshark!!
 
