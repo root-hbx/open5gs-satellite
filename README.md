@@ -65,6 +65,7 @@ There are some testing platforms interacting closely with OpenSat:
 - [5G Network Overwiew && 5G Architecture](./docs/notes/5g-arch.md)
 - [Mobility Management](./docs/notes/mm-register.md)
 - [5G Roaming (HR and LBO)](./docs/notes/5g-roam.md)
+- [Basic Tools for OpenSat](./docs/notes/tools.md)
 
 **Your device should be prepared**
 
