@@ -48,9 +48,12 @@ Currently, there are several branch:
   - all func and module tests should be 100/100
 - `mm-roam`: nightly built
   - config files are modified with the requirement of 5G Roaming
+  - working on "Roaming on one single host @ open5gs" tests
   - some errors when testing func and modules in Open5GS User's Guide, no worry
 - `tcpgen`: interact with UERANSIM
   - working on "End2End Terrestrial TrafficGen" experiments
+- `mm-switch`: 2 open5gs corenet + 1 ueransim
+  - inspired by [#issue 5](https://github.com/root-hbx/open5gs-satellite/issues/5)
 
 There are some testing platforms interacting closely with OpenSat:
 
