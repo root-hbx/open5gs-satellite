@@ -5,7 +5,7 @@ import sys
 import os
 import logging
 
-OPENSAT_CWD = "/home/open5gs/open5gs-satellite"
+OPENSAT_CWD = "/home/open5gs2/open5gs-satellite"
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 

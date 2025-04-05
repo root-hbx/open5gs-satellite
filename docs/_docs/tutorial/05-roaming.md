@@ -578,7 +578,7 @@ index e78b018f1..3032a06c6 100644
 -        - address: 127.0.0.7
 +        - address: 10.10.1.5
      session:
-       - subnet: 10.45.0.1/16
+       - subnet: 10.42.0.1/16
        - subnet: 2001:db8:cafe::1/48
 ```
 
@@ -899,7 +899,7 @@ index e78b018f1..3032a06c6 100644
 -        - address: 127.0.0.7
 +        - address: 10.10.2.5
      session:
-       - subnet: 10.45.0.1/16
+       - subnet: 10.42.0.1/16
        - subnet: 2001:db8:cafe::1/48
 ```
 
@@ -1220,7 +1220,7 @@ index e78b018f1..3032a06c6 100644
 -        - address: 127.0.0.7
 +        - address: 10.10.3.5
      session:
-       - subnet: 10.45.0.1/16
+       - subnet: 10.42.0.1/16
        - subnet: 2001:db8:cafe::1/48
 ```
 

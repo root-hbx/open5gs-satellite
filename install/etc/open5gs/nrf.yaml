@@ -1,6 +1,6 @@
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/nrf.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/nrf.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -55,11 +55,11 @@ nrf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #  sbi:
 #    server:
 #      - address: nrf.localdomain
@@ -71,13 +71,13 @@ nrf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
-#        sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/nrf-server-sslkeylog.log
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
+#        sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/nrf-server-sslkeylog.log
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/nrf-client-sslkeylog.log
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/nrf-client-sslkeylog.log
 #  sbi:
 #    server:
 #      - address: nrf.localdomain
@@ -87,15 +87,15 @@ nrf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
 #        verify_client: true
-#        verify_client_cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        verify_client_cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.key
-#        client_cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.key
+#        client_cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nrf.crt
 #  sbi:
 #    server:
 #      - address: nrf.localdomain

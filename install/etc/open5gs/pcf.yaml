@@ -1,7 +1,7 @@
 db_uri: mongodb://localhost/open5gs
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/pcf.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/pcf.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -246,11 +246,11 @@ pcf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #  sbi:
 #    server:
 #      - address: pcf.localdomain
@@ -265,13 +265,13 @@ pcf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
-#        sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/pcf-server-sslkeylog.log
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
+#        sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/pcf-server-sslkeylog.log
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/pcf-client-sslkeylog.log
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/pcf-client-sslkeylog.log
 #  sbi:
 #    server:
 #      - address: pcf.localdomain
@@ -284,15 +284,15 @@ pcf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
 #        verify_client: true
-#        verify_client_cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        verify_client_cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.key
-#        client_cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.key
+#        client_cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/pcf.crt
 #  sbi:
 #    server:
 #      - address: pcf.localdomain

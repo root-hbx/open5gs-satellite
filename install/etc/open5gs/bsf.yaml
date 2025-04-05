@@ -1,6 +1,6 @@
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/bsf.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/bsf.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -108,11 +108,11 @@ bsf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #  sbi:
 #    server:
 #      - address: bsf.localdomain
@@ -127,13 +127,13 @@ bsf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
-#        sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/bsf-server-sslkeylog.log
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
+#        sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/bsf-server-sslkeylog.log
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/bsf-client-sslkeylog.log
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/bsf-client-sslkeylog.log
 #  sbi:
 #    server:
 #      - address: bsf.localdomain
@@ -146,15 +146,15 @@ bsf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
 #        verify_client: true
-#        verify_client_cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        verify_client_cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.key
-#        client_cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.key
+#        client_cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/bsf.crt
 #  sbi:
 #    server:
 #      - address: bsf.localdomain

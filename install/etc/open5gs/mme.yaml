@@ -1,6 +1,6 @@
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/mme.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/mme.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -9,7 +9,7 @@ global:
 #    peer: 64
 
 mme:
-  freeDiameter: /home/open5gs/open5gs-satellite/install/etc/freeDiameter/mme.conf
+  freeDiameter: /home/open5gs2/open5gs-satellite/install/etc/freeDiameter/mme.conf
   s1ap:
     server:
       - address: 127.0.0.2

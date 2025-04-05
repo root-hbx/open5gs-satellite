@@ -29,7 +29,7 @@ class NetworkConfig:
             logging.info("Configuring IPv4 NAT masquerading...")
             subprocess.run([
                 "iptables", "-t", "nat", "-A", "POSTROUTING", 
-                "-s", "10.45.0.0/16", "!", "-o", "ogstun", 
+                "-s", "10.42.0.0/16", "!", "-o", "ogstun", 
                 "-j", "MASQUERADE"
             ], check=True)
 
@@ -82,7 +82,7 @@ class NetworkConfig:
             subprocess.run(["ip", "tuntap", "add", "name", "ogstun", "mode", "tun"], check=True)
             
             logging.info("Configuring IPv4 address for ogstun...")
-            subprocess.run(["ip", "addr", "add", "10.45.0.1/16", "dev", "ogstun"], check=True)
+            subprocess.run(["ip", "addr", "add", "10.42.0.1/16", "dev", "ogstun"], check=True)
             
             logging.info("Configuring IPv6 address for ogstun...")
             subprocess.run(["ip", "addr", "add", "2001:db8:cafe::1/48", "dev", "ogstun"], check=True)

@@ -435,7 +435,7 @@ void test_rx_send_aar_audio(uint8_t **rx_sid,
         ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
         ogs_assert(ret == 0);
         #define TEST_OGS_DIAM_RX_FLOW_DESC3  \
-            "permit out 17 from 172.20.166.84 to 10.45.0.2 20002"
+            "permit out 17 from 172.20.166.84 to 10.42.0.2 20002"
         val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC3;
         val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC3);
         ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -446,7 +446,7 @@ void test_rx_send_aar_audio(uint8_t **rx_sid,
         ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
         ogs_assert(ret == 0);
         #define TEST_OGS_DIAM_RX_FLOW_DESC4  \
-            "permit in 17 from 10.45.0.2 to 172.20.166.84 20361"
+            "permit in 17 from 10.42.0.2 to 172.20.166.84 20361"
         val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC4;
         val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC4);
         ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -471,7 +471,7 @@ void test_rx_send_aar_audio(uint8_t **rx_sid,
         ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
         ogs_assert(ret == 0);
         #define TEST_OGS_DIAM_RX_FLOW_DESC17  \
-            "permit out 17 from 172.20.166.84 to 10.45.0.2 30001"
+            "permit out 17 from 172.20.166.84 to 10.42.0.2 30001"
         val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC17;
         val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC17);
         ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -482,7 +482,7 @@ void test_rx_send_aar_audio(uint8_t **rx_sid,
         ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
         ogs_assert(ret == 0);
         #define TEST_OGS_DIAM_RX_FLOW_DESC18  \
-            "permit in 17 from 10.45.0.2 to 172.20.166.84 30360"
+            "permit in 17 from 10.42.0.2 to 172.20.166.84 30360"
         val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC18;
         val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC18);
         ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -515,7 +515,7 @@ void test_rx_send_aar_audio(uint8_t **rx_sid,
         ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
         ogs_assert(ret == 0);
         #define TEST_OGS_DIAM_RX_FLOW_DESC19  \
-            "permit out 17 from 172.20.166.84 to 10.45.0.2 30002"
+            "permit out 17 from 172.20.166.84 to 10.42.0.2 30002"
         val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC19;
         val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC19);
         ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -526,7 +526,7 @@ void test_rx_send_aar_audio(uint8_t **rx_sid,
         ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
         ogs_assert(ret == 0);
         #define TEST_OGS_DIAM_RX_FLOW_DESC20  \
-            "permit in 17 from 10.45.0.2 to 172.20.166.84 30361"
+            "permit in 17 from 10.42.0.2 to 172.20.166.84 30361"
         val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC20;
         val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC20);
         ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -796,7 +796,7 @@ void test_rx_send_aar_video(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC7  \
-        "permit out 17 from 10.45.0.5 50027 to 10.45.0.3 50023"
+        "permit out 17 from 10.42.0.5 50027 to 10.42.0.3 50023"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC7;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC7);
     ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -807,7 +807,7 @@ void test_rx_send_aar_video(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC8  \
-        "permit in 17 from 10.45.0.3 50023 to 10.45.0.5 50027"
+        "permit in 17 from 10.42.0.3 50023 to 10.42.0.5 50027"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC8;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC8);
     ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -980,7 +980,7 @@ void test_rx_send_aar_video(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC11  \
-        "permit out 17 from 10.45.0.5 60011 to 10.45.0.3 60011"
+        "permit out 17 from 10.42.0.5 60011 to 10.42.0.3 60011"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC11;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC11);
     ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -991,7 +991,7 @@ void test_rx_send_aar_video(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC12  \
-        "permit in 17 from 10.45.0.3 60011 to 10.45.0.5 60011"
+        "permit in 17 from 10.42.0.3 60011 to 10.42.0.5 60011"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC12;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC12);
     ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -1424,7 +1424,7 @@ void test_rx_send_aar_ctrl(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC13  \
-        "permit out ip from 172.30.0.144 43810 to 10.45.0.4 43810"
+        "permit out ip from 172.30.0.144 43810 to 10.42.0.4 43810"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC13;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC13);
     ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -1435,7 +1435,7 @@ void test_rx_send_aar_ctrl(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC14  \
-        "permit in ip from 10.45.0.4 43810 to 172.30.0.144 43810"
+        "permit in ip from 10.42.0.4 43810 to 172.30.0.144 43810"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC14;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC14);
     ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -1446,7 +1446,7 @@ void test_rx_send_aar_ctrl(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC15  \
-        "permit out ip from 172.30.0.144 43811 to 10.45.0.4 43811"
+        "permit out ip from 172.30.0.144 43811 to 10.42.0.4 43811"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC15;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC15);
     ret = fd_msg_avp_setvalue (avpch2, &val);
@@ -1457,7 +1457,7 @@ void test_rx_send_aar_ctrl(uint8_t **rx_sid, test_sess_t *sess, int id_type)
     ret = fd_msg_avp_new(ogs_diam_rx_flow_description, 0, &avpch2);
     ogs_assert(ret == 0);
     #define TEST_OGS_DIAM_RX_FLOW_DESC16  \
-        "permit in ip from 10.45.0.4 43811 to 172.30.0.144 43811"
+        "permit in ip from 10.42.0.4 43811 to 172.30.0.144 43811"
     val.os.data = (uint8_t *)TEST_OGS_DIAM_RX_FLOW_DESC16;
     val.os.len  = strlen(TEST_OGS_DIAM_RX_FLOW_DESC16);
     ret = fd_msg_avp_setvalue (avpch2, &val);

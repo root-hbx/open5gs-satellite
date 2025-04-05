@@ -1,7 +1,7 @@
 db_uri: mongodb://localhost/open5gs
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/hss.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/hss.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -10,7 +10,7 @@ global:
 #    peer: 64
 
 hss:
-  freeDiameter: /home/open5gs/open5gs-satellite/install/etc/freeDiameter/hss.conf
+  freeDiameter: /home/open5gs2/open5gs-satellite/install/etc/freeDiameter/hss.conf
   metrics:
     server:
       - address: 127.0.0.8

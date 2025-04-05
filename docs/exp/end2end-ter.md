@@ -191,8 +191,8 @@ Prev:
         server:
             - address: 127.0.0.7
     session:
-        - subnet: 10.45.0.0/16
-          gateway: 10.45.0.1
+        - subnet: 10.42.0.0/16
+          gateway: 10.42.0.1
 ```
 
 Modified:
@@ -202,8 +202,8 @@ Modified:
         server:
             - address: 172.16.122.135 # ens37 (HostOnly) of open5gs machine
     session:
-        - subnet: 10.45.0.0/16
-          gateway: 10.45.0.1
+        - subnet: 10.42.0.0/16
+          gateway: 10.42.0.1
 ```
 
 **(2) register on Open5GS WebUI**
@@ -359,7 +359,7 @@ Result 1:
 ```
 ueransim@ueransim:~$ sudo traceroute -i uesimtun0 baidu.com
 traceroute to baidu.com (39.156.66.10), 30 hops max, 60 byte packets
- 1  10.45.0.1 (10.45.0.1)  0.725 ms  0.647 ms  0.568 ms
+ 1  10.42.0.1 (10.42.0.1)  0.725 ms  0.647 ms  0.568 ms
  2  _gateway (172.16.162.2)  0.662 ms  0.613 ms  0.596 ms
  3  XiaoQiang (192.168.31.1)  2.268 ms  2.224 ms  2.163 ms
  4  115.154.192.1 (115.154.192.1)  5.644 ms  6.670 ms  7.164 ms
@@ -394,9 +394,9 @@ traceroute to baidu.com (39.156.66.10), 30 hops max, 60 byte packets
 Result 2:
 
 ```
-ueransim@ueransim:~$ sudo traceroute -s 10.45.0.2 -i uesimtun0 baidu.com
+ueransim@ueransim:~$ sudo traceroute -s 10.42.0.2 -i uesimtun0 baidu.com
 traceroute to baidu.com (110.242.68.66), 30 hops max, 60 byte packets
- 1  10.45.0.1 (10.45.0.1)  1.145 ms  1.239 ms  1.234 ms
+ 1  10.42.0.1 (10.42.0.1)  1.145 ms  1.239 ms  1.234 ms
  2  _gateway (172.16.162.2)  1.351 ms  1.477 ms  1.473 ms
  3  XiaoQiang (192.168.31.1)  68.360 ms  68.544 ms  68.339 ms
  4  115.154.192.1 (115.154.192.1)  68.733 ms  69.405 ms  68.712 ms
@@ -432,11 +432,11 @@ traceroute to baidu.com (110.242.68.66), 30 hops max, 60 byte packets
 
 This phenomenon is related to DNS resolution, where the domain name "baidu.com" corresponds to multiple IP addresses, and different network environments yield different resolutions.
 
-(2) Why started from 10.45.0.1? (`uesimtun0`'s IP equals to `10.45.0.2`)
+(2) Why started from 10.42.0.1? (`uesimtun0`'s IP equals to `10.42.0.2`)
 
 This might be due to the device itself still using the default gateway routing, which is out of our expectations.
 
-Even if we specify the `src IP` by `-s 10.45.0.2`, the device still goes from the default `src IP`.
+Even if we specify the `src IP` by `-s 10.42.0.2`, the device still goes from the default `src IP`.
 
 > [!WARNING]\
 > Frankly speaking, the result above brings some bad news for us:

@@ -33,7 +33,7 @@ extern "C" {
 #define TEST_AMF_IPV4           TEST_MME_IPV4
 #define TEST_GNB_IPV4           TEST_ENB_IPV4
 
-#define TEST_PING_IPV4          "10.45.0.1"
+#define TEST_PING_IPV4          "10.42.0.1"
 #define TEST_PING_IPV6          "2001:db8:cafe::1"
 
 #define TEST_MSISDN             "491725670014"

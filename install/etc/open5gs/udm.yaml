@@ -1,6 +1,6 @@
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/udm.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/udm.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -12,22 +12,22 @@ udm:
   hnet:
     - id: 1
       scheme: 1
-      key: /home/open5gs/open5gs-satellite/install/etc/open5gs/hnet/curve25519-1.key
+      key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/hnet/curve25519-1.key
     - id: 2
       scheme: 2
-      key: /home/open5gs/open5gs-satellite/install/etc/open5gs/hnet/secp256r1-2.key
+      key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/hnet/secp256r1-2.key
     - id: 3
       scheme: 1
-      key: /home/open5gs/open5gs-satellite/install/etc/open5gs/hnet/curve25519-3.key
+      key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/hnet/curve25519-3.key
     - id: 4
       scheme: 2
-      key: /home/open5gs/open5gs-satellite/install/etc/open5gs/hnet/secp256r1-4.key
+      key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/hnet/secp256r1-4.key
     - id: 5
       scheme: 1
-      key: /home/open5gs/open5gs-satellite/install/etc/open5gs/hnet/curve25519-5.key
+      key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/hnet/curve25519-5.key
     - id: 6
       scheme: 2
-      key: /home/open5gs/open5gs-satellite/install/etc/open5gs/hnet/secp256r1-6.key
+      key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/hnet/secp256r1-6.key
   sbi:
     server:
       - address: 127.0.0.12
@@ -167,11 +167,11 @@ udm:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #  sbi:
 #    server:
 #      - address: udm.localdomain
@@ -186,13 +186,13 @@ udm:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.crt
-#        sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/udm-server-sslkeylog.log
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.crt
+#        sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/udm-server-sslkeylog.log
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/udm-client-sslkeylog.log
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/udm-client-sslkeylog.log
 #  sbi:
 #    server:
 #      - address: udm.localdomain
@@ -205,15 +205,15 @@ udm:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.crt
 #        verify_client: true
-#        verify_client_cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        verify_client_cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.key
-#        client_cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/udm.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.key
+#        client_cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/udm.crt
 #  sbi:
 #    server:
 #      - address: udm.localdomain

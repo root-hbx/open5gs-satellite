@@ -258,7 +258,7 @@ $ sysctl -n net.ipv6.conf.ogstun.disable_ipv6
 Set the IP address on the `ogstun` TUN interface.
 
 ```bash
-$ sudo ip addr add 10.45.0.1/16 dev ogstun
+$ sudo ip addr add 10.42.0.1/16 dev ogstun
 $ sudo ip addr add 2001:db8:cafe::1/48 dev ogstun
 ```
 

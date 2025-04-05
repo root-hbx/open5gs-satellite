@@ -6,8 +6,8 @@ if [ "$SYSTEM" = "Linux" ]; then
     if ! grep "ogstun" /proc/net/dev > /dev/null; then
         ip tuntap add name ogstun mode tun
     fi
-    ip addr del 10.45.0.1/16 dev ogstun 2> /dev/null
-    ip addr add 10.45.0.1/16 dev ogstun
+    ip addr del 10.42.0.1/16 dev ogstun 2> /dev/null
+    ip addr add 10.42.0.1/16 dev ogstun
     ip addr del 2001:db8:cafe::1/48 dev ogstun 2> /dev/null
     ip addr add 2001:db8:cafe::1/48 dev ogstun
     ip addr del 10.46.0.1/16 dev ogstun2 2> /dev/null
@@ -436,7 +436,7 @@ else
     ifconfig lo0 inet6 add fd69:f21d:873c:fd::252 prefixlen 128
     if [ "$SYSTEM" = "Darwin" ]; then
         if ! test -f /etc/pf.anchors/org.open5gs; then
-            sudo sh -c "echo 'nat on {en0} from 10.45.0.0/16 to any -> {en0}' > /etc/pf.anchors/org.open5gs"
+            sudo sh -c "echo 'nat on {en0} from 10.42.0.0/16 to any -> {en0}' > /etc/pf.anchors/org.open5gs"
             sudo sh -c "echo 'nat on {en0} from 2001:db8:cafe::1/48 to any -> {en0}' > /etc/pf.anchors/org.open5gs"
             sudo sh -c "echo 'nat on {en0} from 10.46.0.0/16 to any -> {en0}' > /etc/pf.anchors/org.open5gs"
             sudo sh -c "echo 'nat on {en0} from 2001:db8:babe::1/48 to any -> {en0}' > /etc/pf.anchors/org.open5gs"

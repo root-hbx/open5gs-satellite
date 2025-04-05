@@ -31,7 +31,7 @@ class TestSchemaUpdater(unittest.TestCase):
                     },
                     'type': 0,
                     'ue': {
-                        'addr': '10.45.1.1',
+                        'addr': '10.42.1.1',
                         'addr6': 'dead:beef::1'
                     }
                 }

@@ -46,7 +46,7 @@ Create the TUN device with the interface name `ogstun`.
 
 ```bash
 $ sudo ip tuntap add name ogstun mode tun
-$ sudo ip addr add 10.45.0.1/16 dev ogstun
+$ sudo ip addr add 10.42.0.1/16 dev ogstun
 $ sudo ip addr add 2001:db8:cafe::1/48 dev ogstun
 $ sudo ip link set ogstun up
 ```
@@ -196,7 +196,7 @@ index e78b018f1..35a54419e 100644
 -        - address: 127.0.0.7
 +        - address: 10.11.0.7
      session:
-       - subnet: 10.45.0.1/16
+       - subnet: 10.42.0.1/16
        - subnet: 2001:db8:cafe::1/48
 ```
 ##### 4G EPC
@@ -535,7 +535,7 @@ $ sudo sysctl -w net.ipv4.ip_forward=1
 $ sudo sysctl -w net.ipv6.conf.all.forwarding=1
 
 ### Add NAT Rule
-$ sudo iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
+$ sudo iptables -t nat -A POSTROUTING -s 10.42.0.0/16 ! -o ogstun -j MASQUERADE
 $ sudo ip6tables -t nat -A POSTROUTING -s 2001:db8:cafe::/48 ! -o ogstun -j MASQUERADE
 ```
 
@@ -556,13 +556,13 @@ Optionally, you may consider the settings below for security purposes.
 $ sudo iptables -I INPUT -i ogstun -j ACCEPT
 
 ### Prevent UE's from connecting to the host on which UPF is running
-$ sudo iptables -I INPUT -s 10.45.0.0/16 -j DROP
+$ sudo iptables -I INPUT -s 10.42.0.0/16 -j DROP
 $ sudo ip6tables -I INPUT -s 2001:db8:cafe::/48 -j DROP
 
 ### If your core network runs over multiple hosts, you probably want to block
 ### UE originating traffic from accessing other network functions.
 ### Replace x.x.x.x/y with the VNFs IP/subnet
-$ sudo iptables -I FORWARD -s 10.45.0.0/16 -d x.x.x.x/y -j DROP
+$ sudo iptables -I FORWARD -s 10.42.0.0/16 -d x.x.x.x/y -j DROP
 ```
 
 ## 5. Turn on your eNB/gNB and UE

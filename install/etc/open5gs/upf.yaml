@@ -1,6 +1,6 @@
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/upf.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/upf.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -17,10 +17,10 @@ upf:
 #        - address: 127.0.0.4
   gtpu:
     server:
-      - address: 172.16.122.135 # ens34(HostOnly) of open5gs machine # 127.0.0.7
+      - address: 172.16.122.120 # ens34(HostOnly) of open5gs machine # 127.0.0.7
   session:
-    - subnet: 10.45.0.0/16
-      gateway: 10.45.0.1
+    - subnet: 10.42.0.0/16
+      gateway: 10.42.0.1
     - subnet: 2001:db8:cafe::/48
       gateway: 2001:db8:cafe::1
   metrics:
@@ -67,14 +67,14 @@ upf:
 ################################################################################
 #
 #  o Specific DNN/APN(e.g 'ims') uses 10.46.0.1/16, 2001:db8:babe::1/48
-#  $ sudo ip addr add 10.45.0.1/16 dev ogstun
+#  $ sudo ip addr add 10.42.0.1/16 dev ogstun
 #  $ sudo ip addr add 2001:db8:cafe::1/48 dev ogstun2
 #  $ sudo ip addr add 10.46.0.1/16 dev ogstun3
 #  $ sudo ip addr add 2001:db8:babe::1/48 dev ogstun3
 #
 #  session:
-#    - subnet: 10.45.0.0/16
-#      gateway: 10.45.0.1
+#    - subnet: 10.42.0.0/16
+#      gateway: 10.42.0.1
 #      dnn: internet
 #    - subnet: 2001:db8:cafe::/48
 #      dnn: internet

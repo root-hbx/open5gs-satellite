@@ -1,6 +1,6 @@
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/nssf.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/nssf.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -135,11 +135,11 @@ nssf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #  sbi:
 #    server:
 #      - address: nssf.localdomain
@@ -158,13 +158,13 @@ nssf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
-#        sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/nssf-server-sslkeylog.log
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
+#        sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/nssf-server-sslkeylog.log
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/nssf-client-sslkeylog.log
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/nssf-client-sslkeylog.log
 #  sbi:
 #    server:
 #      - address: nssf.localdomain
@@ -181,15 +181,15 @@ nssf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
 #        verify_client: true
-#        verify_client_cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        verify_client_cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.key
-#        client_cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.key
+#        client_cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/nssf.crt
 #  sbi:
 #    server:
 #      - address: nssf.localdomain

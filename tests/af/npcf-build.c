@@ -205,14 +205,14 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_create(
         /* Nothing */
     } else if (af_param->flow_type == 1) {
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit out 17 from 172.20.166.84 to 10.45.0.2 20001"));
+            ogs_strdup("permit out 17 from 172.20.166.84 to 10.42.0.2 20001"));
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit in 17 from 10.45.0.2 to 172.20.166.84 20360"));
+            ogs_strdup("permit in 17 from 10.42.0.2 to 172.20.166.84 20360"));
     } else if (af_param->flow_type == 2) {
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit out 17 from 172.20.166.84 to 10.45.0.2 30001"));
+            ogs_strdup("permit out 17 from 172.20.166.84 to 10.42.0.2 30001"));
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit in 17 from 10.45.0.2 to 172.20.166.84 30360"));
+            ogs_strdup("permit in 17 from 10.42.0.2 to 172.20.166.84 30360"));
     } else if (af_param->flow_type == 99) {
         OpenAPI_list_add(fDescList,
             ogs_strdup("permit out icmp from any to any"));
@@ -247,14 +247,14 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_create(
         /* Nothing */
     } else if (af_param->flow_type == 1 || af_param->flow_type == 99) {
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit out 17 from 172.20.166.84 to 10.45.0.2 20002"));
+            ogs_strdup("permit out 17 from 172.20.166.84 to 10.42.0.2 20002"));
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit in 17 from 10.45.0.2 to 172.20.166.84 20361"));
+            ogs_strdup("permit in 17 from 10.42.0.2 to 172.20.166.84 20361"));
     } else if (af_param->flow_type == 2) {
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit out 17 from 172.20.166.84 to 10.45.0.2 30002"));
+            ogs_strdup("permit out 17 from 172.20.166.84 to 10.42.0.2 30002"));
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit in 17 from 10.45.0.2 to 172.20.166.84 30361"));
+            ogs_strdup("permit in 17 from 10.42.0.2 to 172.20.166.84 30361"));
     } else {
         ogs_assert_if_reached();
     }
@@ -478,9 +478,9 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_update(
         /* Nothing */
     } else if (af_param->flow_type == 1) {
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit out 17 from 172.20.166.84 to 10.45.0.2 20001"));
+            ogs_strdup("permit out 17 from 172.20.166.84 to 10.42.0.2 20001"));
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit in 17 from 10.45.0.2 to 172.20.166.84 20360"));
+            ogs_strdup("permit in 17 from 10.42.0.2 to 172.20.166.84 20360"));
     } else if (af_param->flow_type == 99) {
         OpenAPI_list_add(fDescList,
             ogs_strdup("permit out icmp from any to any"));
@@ -513,9 +513,9 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_update(
     ogs_assert(fDescList);
     if (af_param->flow_type) {
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit out 17 from 172.20.166.84 to 10.45.0.2 20002"));
+            ogs_strdup("permit out 17 from 172.20.166.84 to 10.42.0.2 20002"));
         OpenAPI_list_add(fDescList,
-            ogs_strdup("permit in 17 from 10.45.0.2 to 172.20.166.84 20361"));
+            ogs_strdup("permit in 17 from 10.42.0.2 to 172.20.166.84 20361"));
     }
     if (fDescList->count)
         SubComponent->f_descs = fDescList;
@@ -812,9 +812,9 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_create_video(
     fDescList = OpenAPI_list_create();
     ogs_assert(fDescList);
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit out 17 from 10.45.0.5 50026 to 10.45.0.3 50022"));
+        ogs_strdup("permit out 17 from 10.42.0.5 50026 to 10.42.0.3 50022"));
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit in 17 from 10.45.0.3 50022 to 10.45.0.5 50026"));
+        ogs_strdup("permit in 17 from 10.42.0.3 50022 to 10.42.0.5 50026"));
     if (fDescList->count)
         SubComponent->f_descs = fDescList;
     else
@@ -838,9 +838,9 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_create_video(
     fDescList = OpenAPI_list_create();
     ogs_assert(fDescList);
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit out 17 from 10.45.0.5 50027 to 10.45.0.3 50023"));
+        ogs_strdup("permit out 17 from 10.42.0.5 50027 to 10.42.0.3 50023"));
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit in 17 from 10.45.0.3 50023 to 10.45.0.5 50027"));
+        ogs_strdup("permit in 17 from 10.42.0.3 50023 to 10.42.0.5 50027"));
     if (fDescList->count)
         SubComponent->f_descs = fDescList;
     else
@@ -941,9 +941,9 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_create_video(
     fDescList = OpenAPI_list_create();
     ogs_assert(fDescList);
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit out 17 from 10.45.0.5 60010 to 10.45.0.3 60010"));
+        ogs_strdup("permit out 17 from 10.42.0.5 60010 to 10.42.0.3 60010"));
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit in 17 from 10.45.0.3 60010 to 10.45.0.5 60010"));
+        ogs_strdup("permit in 17 from 10.42.0.3 60010 to 10.42.0.5 60010"));
     if (fDescList->count)
         SubComponent->f_descs = fDescList;
     else
@@ -967,9 +967,9 @@ ogs_sbi_request_t *af_npcf_policyauthorization_build_create_video(
     fDescList = OpenAPI_list_create();
     ogs_assert(fDescList);
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit out 17 from 10.45.0.5 60011 to 10.45.0.3 60011"));
+        ogs_strdup("permit out 17 from 10.42.0.5 60011 to 10.42.0.3 60011"));
     OpenAPI_list_add(fDescList,
-        ogs_strdup("permit in 17 from 10.45.0.3 60011 to 10.45.0.5 60011"));
+        ogs_strdup("permit in 17 from 10.42.0.3 60011 to 10.42.0.5 60011"));
     if (fDescList->count)
         SubComponent->f_descs = fDescList;
     else

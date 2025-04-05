@@ -1,6 +1,6 @@
 logger:
   file:
-    path: /home/open5gs/open5gs-satellite/install/var/log/open5gs/amf.log
+    path: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/amf.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -20,7 +20,7 @@ amf:
         - uri: http://127.0.0.200:7777
   ngap:
     server:
-      - address: 172.16.122.135 # ens34(HostOnly) of open5gs machine # 127.0.0.5
+      - address: 172.16.122.120 # ens34(HostOnly) of open5gs machine # 127.0.0.5
   metrics:
     server:
       - address: 127.0.0.5
@@ -145,11 +145,11 @@ amf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #  sbi:
 #    server:
 #      - address: amf.localdomain
@@ -164,13 +164,13 @@ amf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.crt
-#        sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/amf-server-sslkeylog.log
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.crt
+#        sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/amf-server-sslkeylog.log
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_sslkeylogfile: /home/open5gs/open5gs-satellite/install/var/log/open5gs/tls/amf-client-sslkeylog.log
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_sslkeylogfile: /home/open5gs2/open5gs-satellite/install/var/log/open5gs/tls/amf-client-sslkeylog.log
 #  sbi:
 #    server:
 #      - address: amf.localdomain
@@ -183,15 +183,15 @@ amf:
 #    tls:
 #      server:
 #        scheme: https
-#        private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.key
-#        cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.crt
+#        private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.key
+#        cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.crt
 #        verify_client: true
-#        verify_client_cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        verify_client_cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
 #      client:
 #        scheme: https
-#        cacert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/ca.crt
-#        client_private_key: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.key
-#        client_cert: /home/open5gs/open5gs-satellite/install/etc/open5gs/tls/amf.crt
+#        cacert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/ca.crt
+#        client_private_key: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.key
+#        client_cert: /home/open5gs2/open5gs-satellite/install/etc/open5gs/tls/amf.crt
 #  sbi:
 #    server:
 #      - address: amf.localdomain

@@ -240,19 +240,19 @@ If the following MME log occurs while connecting to the UE, it means that you ma
 In this case, the HSS may crash as shown below.
 
 ```
-04/12 10:13:45.025: [app] INFO: Configuration: '/home/open5gs/install/etc/open5gs/hss.yaml' (../lib/app/ogs-init.c:129)
-04/12 10:13:45.025: [app] INFO: File Logging: '/home/open5gs/install/var/log/open5gs/hss.log' (../lib/app/ogs-init.c:132)
+04/12 10:13:45.025: [app] INFO: Configuration: '/home/open5gs2/install/etc/open5gs/hss.yaml' (../lib/app/ogs-init.c:129)
+04/12 10:13:45.025: [app] INFO: File Logging: '/home/open5gs2/install/var/log/open5gs/hss.log' (../lib/app/ogs-init.c:132)
 04/12 10:13:45.028: [dbi] INFO: MongoDB URI: 'mongodb://localhost/open5gs' (../lib/dbi/ogs-mongoc.c:129)
 04/12 10:13:45.068: [diam] INFO: CONNECTED TO 'mme.epc.mnc001.mcc001.3gppnetwork.org' (SCTP,soc#17): (../lib/diameter/common/logger.c:108)
 04/12 10:13:45.069: [app] INFO: HSS initialize...done (../src/hss/app-init.c:31)
 04/12 10:14:27.167: [core] FATAL: ogs_slice_find_by_s_nssai: Assertion `num_of_slice_data' failed. (../lib/core/ogs-3gpp-types.c:529)
 04/12 10:14:27.168: [core] FATAL: backtrace() returned 10 addresses (../lib/core/ogs-abort.c:37)
-/home/open5gs/install/lib/x86_64-linux-gnu/libogscore.so.2(ogs_slice_find_by_s_nssai+0xd2) [0x7f3b720a126e]
+/home/open5gs2/install/lib/x86_64-linux-gnu/libogscore.so.2(ogs_slice_find_by_s_nssai+0xd2) [0x7f3b720a126e]
 ./install/bin/open5gs-hssd(+0xd12e) [0x55a57bb6f12e]
-/home/open5gs/install/lib/x86_64-linux-gnu/libfdproto.so.7(fd_disp_call_cb_int+0x270) [0x7f3b7135acb3]
-/home/open5gs/install/lib/x86_64-linux-gnu/libfdproto.so.7(fd_msg_dispatch+0xdca) [0x7f3b7137442f]
+/home/open5gs2/install/lib/x86_64-linux-gnu/libfdproto.so.7(fd_disp_call_cb_int+0x270) [0x7f3b7135acb3]
+/home/open5gs2/install/lib/x86_64-linux-gnu/libfdproto.so.7(fd_msg_dispatch+0xdca) [0x7f3b7137442f]
 home/open5gs/install/lib/x86_64-linux-gnu/libfdcore.so.7(+0x67c3c) [0x7f3b715f9c3c]
-/home/open5gs/install/lib/x86_64-linux-gnu/libfdcore.so.7(+0x6ca99) [0x7f3b715fea99]
+/home/open5gs2/install/lib/x86_64-linux-gnu/libfdcore.so.7(+0x6ca99) [0x7f3b715fea99]
 /open5gs/install/lib/x86_64-linux-gnu/libfdcore.so.7(+0x6cd06) [0x7f3b715fed06]
 /lib/x86_64-linux-gnu/libpthread.so.0(+0x76db) [0x7f3b70d016db]
 /lib/x86_64-linux-gnu/libc.so.6(clone+0x3f) [0x7f3b70a2a71f]
@@ -652,7 +652,7 @@ $ diff -u /etc/systemd/network/99-open5gs.network /etc/systemd/network/99-open5g
  Name=ogstun
 
  [Network]
--Address=10.45.0.1/16
+-Address=10.42.0.1/16
 +Address=10.46.0.1/16
  Address=2001:db8:cafe::1/48
 ```
@@ -678,7 +678,7 @@ index 758ca9cb9..5c9b97cd0 100644
          - address: 127.0.0.4
            port: 9090
      session:
--      - subnet: 10.45.0.1/16
+-      - subnet: 10.42.0.1/16
 +      - subnet: 10.46.0.1/16
        - subnet: 2001:db8:cafe::1/48
      dns:
@@ -691,7 +691,7 @@ index e78b018f1..23cb273f8 100644
        server:
          - address: 127.0.0.7
      session:
--      - subnet: 10.45.0.1/16
+-      - subnet: 10.42.0.1/16
 +      - subnet: 10.46.0.1/16
        - subnet: 2001:db8:cafe::1/48
      metrics:
@@ -729,33 +729,33 @@ $ meson test -v
 4/10 open5gs:unit / unit OK 0.06 s
 09/30 01:12:37.829: [core] FATAL: test_5gc_init: Assertion ogs_dbi_init(ogs_app()->db_uri) == OGS_OK' failed. (../tests/app/5gc-init.c:100)
 09/30 01:12:37.830: [core] FATAL: backtrace() returned 8 addresses (../lib/core/ogs-abort.c:37)
-/home/open5gs/build/tests/registration/registration(+0x1bfd0) [0x55af96a05fd0]
-/home/open5gs/build/tests/registration/registration(+0x3c2e) [0x55af969edc2e]
-/home/open5gs/build/tests/registration/registration(+0x25151) [0x55af96a0f151]
-/home/open5gs/build/tests/registration/registration(+0x251a5) [0x55af96a0f1a5]
-/home/open5gs/build/tests/registration/registration(+0x3cde) [0x55af969edcde]
+/home/open5gs2/build/tests/registration/registration(+0x1bfd0) [0x55af96a05fd0]
+/home/open5gs2/build/tests/registration/registration(+0x3c2e) [0x55af969edc2e]
+/home/open5gs2/build/tests/registration/registration(+0x25151) [0x55af96a0f151]
+/home/open5gs2/build/tests/registration/registration(+0x251a5) [0x55af96a0f1a5]
+/home/open5gs2/build/tests/registration/registration(+0x3cde) [0x55af969edcde]
 /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xe7) [0x7f3c2bb97b97]
-/home/open5gs/build/tests/registration/registration(+0x39aa) [0x55af969ed9aa]
+/home/open5gs2/build/tests/registration/registration(+0x39aa) [0x55af969ed9aa]
 5/10 open5gs:5gc / registration FAIL 0.27 s
 09/30 01:12:38.073: [core] FATAL: test_epc_init: Assertion ogs_dbi_init(ogs_app()->db_uri) == OGS_OK' failed. (../tests/app/epc-init.c:105)
 09/30 01:12:38.073: [core] FATAL: backtrace() returned 8 addresses (../lib/core/ogs-abort.c:37)
-/home/open5gs/build/tests/attach/attach(+0x12362) [0x55ef42081362]
-/home/open5gs/build/tests/attach/attach(+0x367e) [0x55ef4207267e]
-/home/open5gs/build/tests/attach/attach(+0x1b4e3) [0x55ef4208a4e3]
-/home/open5gs/build/tests/attach/attach(+0x1b537) [0x55ef4208a537]
-/home/open5gs/build/tests/attach/attach(+0x372e) [0x55ef4207272e]
+/home/open5gs2/build/tests/attach/attach(+0x12362) [0x55ef42081362]
+/home/open5gs2/build/tests/attach/attach(+0x367e) [0x55ef4207267e]
+/home/open5gs2/build/tests/attach/attach(+0x1b4e3) [0x55ef4208a4e3]
+/home/open5gs2/build/tests/attach/attach(+0x1b537) [0x55ef4208a537]
+/home/open5gs2/build/tests/attach/attach(+0x372e) [0x55ef4207272e]
 /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xe7) [0x7f10b2e30b97]
-/home/open5gs/build/tests/attach/attach(+0x33fa) [0x55ef420723fa]
+/home/open5gs2/build/tests/attach/attach(+0x33fa) [0x55ef420723fa]
 6/10 open5gs:epc / attach FAIL 0.17 s
 09/30 01:12:38.239: [core] FATAL: test_epc_init: Assertion `ogs_dbi_init(ogs_app()->db_uri) == OGS_OK' failed. (../tests/app/epc-init.c:105)
 09/30 01:12:38.239: [core] FATAL: backtrace() returned 8 addresses (../lib/core/ogs-abort.c:37)
-/home/open5gs/build/tests/volte/volte(+0x22272) [0x555df9643272]
-/home/open5gs/build/tests/volte/volte(+0x1210a) [0x555df963310a]
-/home/open5gs/build/tests/volte/volte(+0x2b3f3) [0x555df964c3f3]
-/home/open5gs/build/tests/volte/volte(+0x2b447) [0x555df964c447]
-/home/open5gs/build/tests/volte/volte(+0x12221) [0x555df9633221]
+/home/open5gs2/build/tests/volte/volte(+0x22272) [0x555df9643272]
+/home/open5gs2/build/tests/volte/volte(+0x1210a) [0x555df963310a]
+/home/open5gs2/build/tests/volte/volte(+0x2b3f3) [0x555df964c3f3]
+/home/open5gs2/build/tests/volte/volte(+0x2b447) [0x555df964c447]
+/home/open5gs2/build/tests/volte/volte(+0x12221) [0x555df9633221]
 /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xe7) [0x7fd1df6b6b97]
-/home/open5gs/build/tests/volte/volte(+0x4daa) [0x555df9625daa]
+/home/open5gs2/build/tests/volte/volte(+0x4daa) [0x555df9625daa]
 7/10 open5gs:epc / volte FAIL 0.17 s
 ...
 ```
@@ -943,7 +943,7 @@ $ diff -u oldtables newtables
  -A PREROUTING -m addrtype --dst-type LOCAL -j DOCKER
  -A OUTPUT ! -d 127.0.0.0/8 -m addrtype --dst-type LOCAL -j DOCKER
  -A POSTROUTING -s 172.17.0.0/16 ! -o docker0 -j MASQUERADE
-+-A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
++-A POSTROUTING -s 10.42.0.0/16 ! -o ogstun -j MASQUERADE
  -A DOCKER -i docker0 -j RETURN
  COMMIT
  # Completed on Sat Jun  1 23:43:50 2019
@@ -1002,7 +1002,7 @@ $ sudo sysctl -w net.ipv4.ip_forward=1
 $ sudo sysctl -w net.ipv6.conf.all.forwarding=1
 
 ### Add NAT Rule
-$ sudo iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
+$ sudo iptables -t nat -A POSTROUTING -s 10.42.0.0/16 ! -o ogstun -j MASQUERADE
 $ sudo ip6tables -t nat -A POSTROUTING -s 2001:db8:cafe::/48 ! -o ogstun -j MASQUERADE
 ```
 
@@ -1075,29 +1075,29 @@ The IP address of the UE can also use a different UE pool depending on the DNN/A
 #  <Subnet for UE Pool>
 #
 #  o IPv4 Pool
-#    $ sudo ip addr add 10.45.0.1/16 dev ogstun
+#    $ sudo ip addr add 10.42.0.1/16 dev ogstun
 #
 #    session:
-#      subnet: 10.45.0.1/16
+#      subnet: 10.42.0.1/16
 #
 #  o IPv4/IPv6 Pool
-#    $ sudo ip addr add 10.45.0.1/16 dev ogstun
+#    $ sudo ip addr add 10.42.0.1/16 dev ogstun
 #    $ sudo ip addr add 2001:db8:cafe::1/48 dev ogstun
 #
 #    session:
-#      - subnet: 10.45.0.1/16
+#      - subnet: 10.42.0.1/16
 #      - subnet: 2001:db8:cafe::1/48
 #
 #
 #  o Specific DNN/APN(e.g 'volte') uses 10.46.0.1/16, 2001:db8:babe::1/48
-#    All other DNNs/APNs use 10.45.0.1/16, 2001:db8:cafe::1/48
-#    $ sudo ip addr add 10.45.0.1/16 dev ogstun
+#    All other DNNs/APNs use 10.42.0.1/16, 2001:db8:cafe::1/48
+#    $ sudo ip addr add 10.42.0.1/16 dev ogstun
 #    $ sudo ip addr add 10.46.0.1/16 dev ogstun
 #    $ sudo ip addr add 2001:db8:cafe::1/48 dev ogstun
 #    $ sudo ip addr add 2001:db8:babe::1/48 dev ogstun
 #
 #    session:
-#      - subnet: 10.45.0.1/16
+#      - subnet: 10.42.0.1/16
 #      - subnet: 2001:db8:cafe::1/48
 #      - subnet: 10.46.0.1/16
 #        dnn: volte
@@ -1106,26 +1106,26 @@ The IP address of the UE can also use a different UE pool depending on the DNN/A
 #
 #  o Pool Range Sample
 #    session:
-#      - subnet: 10.45.0.1/24
-#        range: 10.45.0.100-10.45.0.200
+#      - subnet: 10.42.0.1/24
+#        range: 10.42.0.100-10.42.0.200
 #
 #    session:
-#      - subnet: 10.45.0.1/24
+#      - subnet: 10.42.0.1/24
 #        range:
-#          - 10.45.0.5-10.45.0.50
-#          - 10.45.0.100-
+#          - 10.42.0.5-10.42.0.50
+#          - 10.42.0.100-
 #
 #    session:
-#      - subnet: 10.45.0.1/24
+#      - subnet: 10.42.0.1/24
 #        range:
-#          - -10.45.0.200
-#          - 10.45.0.210-10.45.0.220
+#          - -10.42.0.200
+#          - 10.42.0.210-10.42.0.220
 #
 #    session:
-#      - subnet: 10.45.0.1/16
+#      - subnet: 10.42.0.1/16
 #        range:
-#          - 10.45.0.100-10.45.0.200
-#          - 10.45.1.100-10.45.1.200
+#          - 10.42.0.100-10.42.0.200
+#          - 10.42.1.100-10.42.1.200
 #      - subnet: 2001:db8:cafe::1/48
 #        range:
 #          - 2001:db8:cafe:a0::0-2001:db8:cafe:b0::0
@@ -1313,7 +1313,7 @@ Currently, the number of UE is limited to `128*128`.
 - UE Network
 
 ```
-* IPv4 : 10.45.0.1/16
+* IPv4 : 10.42.0.1/16
 * IPv6 : 2001:db8:cafe::1/48
 ```
 
