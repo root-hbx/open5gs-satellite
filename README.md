@@ -51,6 +51,8 @@ Currently, there are several branch:
   - some errors when testing func and modules in Open5GS User's Guide, no worry
 - `tcpgen`: interact with UERANSIM
   - working on "End2End Terrestrial TrafficGen" experiments
+- `mm-switch`: [#issue 5](https://github.com/root-hbx/open5gs-satellite/issues/5)
+  - working on "Dynamic CoreNets" experiments
 
 There are some testing platforms interacting closely with OpenSat:
 
