@@ -2,6 +2,17 @@
 
 For Integrated Space-Terrestrial Network (ISTN), focusing on mobility management of satellite networks.
 
+## Roaming on Single Host
+
+> Run the V-PLMN 5G Core and H-PLMN 5G Core on a single host
+
+- Home PLMN
+- Visited PLMN
+
+This module is inspired by [official doc @open5gs](https://open5gs.org/open5gs/docs/tutorial/05-roaming/)
+
+
+
 ## End2End TrafficGen Instances (Terrestrial)
 
 > Conducting End-to-End Traffic Generation Testing Based on OpenSat
