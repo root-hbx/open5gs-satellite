@@ -14,17 +14,19 @@ In this process:
 2. The 5G core network is implemented using **Open5GS**.  
 3. The UE can be either an **Open5GS-native component** or simulated using **UERANSIM**.
 
-Details can be checked [here](./end2end-ter.md).
+
 
 ## End2End TrafficGen Instances (Satellite)
 
 Coming Soon...
 
+
+
 ## Dynamic CoreNets
 
 > End-to-End Terrestrial Traffic Switching between 2 CoreNets
 
-Based on "[End2End TrafficGen Instances (Terrestrial)](./end2end-ter.md)", now we wanna test traffic switching between different corenets.
+Based on "End2End TrafficGen Instances (Terrestrial)", now we wanna test traffic switching between different corenets.
 
 In this process:
 
@@ -34,12 +36,16 @@ In this process:
 
 This module is inspired by [#issue 5](https://github.com/root-hbx/open5gs-satellite/issues/5).
 
-Details can be checked [here](./dynamic-corenet.md).
+
 
 ## High-Frequency Link Establishment
 
 Coming Soon...
 
+
+
 ## Roaming between Multiple Satellite CoreNets
 
 Coming Soon...
+
+

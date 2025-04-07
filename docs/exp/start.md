@@ -12,7 +12,7 @@ I just provide one tutorial about [VMware 17 Installation](https://blog.bxhu2004
 
 ## Install and Config 4 VMs
 
-Install 3 virtual machines via VMware Workstation:
+Install 4 virtual machines via VMware Workstation:
 
 ### How to install a ubuntu server via VMware
 
