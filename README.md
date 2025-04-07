@@ -150,11 +150,12 @@ Details can be checked [here](./docs/exp/dev.md).
 
 |Experiments|Jump to|Status|
 |:---:|:---:|:---:|
-|End2End TrafficGen Instances (Terrestrial)||✅|
-|End2End TrafficGen Instances (Satellite)||⌛️|
-|Dynamic CoreNets||👷|
-|High-Frequency Link Establishment||⌛️|
-|Roaming between Multiple Satellite CoreNets||⌛️|
+|Roaming on Single Host|[mm-roam branch](https://github.com/root-hbx/open5gs-satellite/tree/mm-roam)|✅|
+|End2End TrafficGen Instances (Terrestrial)|[tcpgen branch](https://github.com/root-hbx/open5gs-satellite/tree/tcpgen)|✅|
+|End2End TrafficGen Instances (Satellite)|TBD|⌛️|
+|Dynamic CoreNets|[mm-switch branch](https://github.com/root-hbx/open5gs-satellite/tree/mm-switch)|👷|
+|High-Frequency Link Establishment|TBD|⌛️|
+|Roaming between Multiple Satellite CoreNets|TBD|⌛️|
 
 ## Contributing
 
