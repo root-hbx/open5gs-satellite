@@ -1,154 +1,345 @@
-<h1 align="center">
-    OpenSat: Open5gs Simulator for Satellite Networks
-</h1>
+# Dynamic CoreNets
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./docs/opensat.png">
-    <img alt="OpenSat" src="./docs/opensat.png" width=25%>
-  </picture>
-</p>
+> End-to-End Terrestrial Traffic Switching between 2 CoreNets
 
-<p align="center">
+Based on "[End2End TrafficGen Instances (Terrestrial)](./end2end-ter.md)", now we wanna test traffic switching between different corenets.
 
-<!-- use https://shields.io/badges/git-hub-contributors -->
-<!-- <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/root-hbx/open5gs-satellite"> -->
+In this process:
 
-<a href="https://github.com/root-hbx/open5gs-satellite/blob/mm-roam/docs/exp/start.md">
-  <img alt="Documentation" src="https://img.shields.io/badge/docs-gray?logo=readthedocs&logoColor=f5f5f5">
-</a>
+1. Network traffic can be captured and analyzed using **Wireshark** or **Traceroute** to determine the traffic path.  
+2. Two 5G core networks (`open5gs` / `open5gs2`) are implemented using **Open5GS**.  
+3. The UE is simulated by **UERANSIM**.
 
-<!-- use https://shields.io/badges/git-hub-actions-workflow-status -->
-<img alt="Workflow Status" src="https://img.shields.io/github/actions/workflow/status/root-hbx/open5gs-satellite/meson-ci.yml">
+This module is inspired by [#issue 5](https://github.com/root-hbx/open5gs-satellite/issues/5).
 
-<a href="https://github.com/root-hbx/open5gs-satellite/issues">
-  <img src="https://img.shields.io/github/issues/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Issues">
-</a>
+## Environments and Devices
 
-<a href="https://github.com/root-hbx/open5gs-satellite/pulls">
-  <img src="https://img.shields.io/github/issues-pr/root-hbx/open5gs-satellite?style=flat&logo=github" alt="Pull Requests">
-</a>
-
-<!-- use https://shields.io/badges/git-hub-license -->
-<img alt="License" src="https://img.shields.io/github/license/root-hbx/open5gs-satellite">
-
-<!-- use https://shields.io/badges/git-hub-repo-stars -->
-<img alt="Repo Stars" src="https://img.shields.io/github/stars/root-hbx/open5gs-satellite">
-
-</p>
-
-------
-
-This repo is based on [open5gs](https://open5gs.org/) v2.7.4
-
-Currently, there are several branch:
-
-- `stable`: ensure stability
-  - all config files are unmodified
-  - all func and module tests should be 100/100
-- `mm-roam`: nightly built
-  - config files are modified with the requirement of 5G Roaming
-  - some errors when testing func and modules in Open5GS User's Guide, no worry
-- `tcpgen`: interact with UERANSIM
-  - working on "End2End Terrestrial TrafficGen" experiments
-- `mm-switch`: [#issue 5](https://github.com/root-hbx/open5gs-satellite/issues/5)
-  - working on "Dynamic CoreNets" experiments
-
-There are some testing platforms interacting closely with OpenSat:
+**Coding Repo**
 
 - [open5gs-satellite](https://github.com/root-hbx/open5gs-satellite): independent
 - [ueransim-satellite](https://github.com/root-hbx/ueransim-satellite): independent
 - [free5gc](https://github.com/root-hbx/free5gc): forked
 
-## Prerequisites for OpenSat
+**Physical Machine** 
 
-**Everything you should know about 5G before getting started**
+Linux bxhu-ThinkBook-16-G4-IAP Ubuntu24.04LTS
 
-- [5G Network Overwiew && 5G Architecture](./docs/notes/5g-arch.md)
-- [Mobility Management](./docs/notes/mm-register.md)
-- [5G Roaming (HR and LBO)](./docs/notes/5g-roam.md)
-- [Basic Tools for OpenSat](./docs/notes/tools.md)
+**Virtual Machine**
 
-**Your device should be prepared**
+VMware Workstation 17
 
-Details can be checked at [pre-opensat doc](./docs/exp/start.md).
+- VM1: for open5gs
+    - `open5gs@open5gs`: installed with [open5gs-satellite](https://github.com/root-hbx/open5gs-satellite)
+    - Memory: 12GB
+    - Processors: 8
+    - Network Adapter 1: NAT
+    - Network Adapter 2: Host-Only
+- VM2: for open5gs
+    - `open5gs2@open5gs2`: installed with [open5gs-satellite](https://github.com/root-hbx/open5gs-satellite)
+    - Memory: 12GB
+    - Processors: 8
+    - Network Adapter 1: NAT
+    - Network Adapter 2: Host-Only
+- VM3: for UERANSIM
+    - `ueransim@ueransim`: installed with [ueransim-satellite](https://github.com/root-hbx/ueransim-satellite)
+    - Memory: 4GB
+    - Processors: 2
+    - Network Adapter 1: NAT
+    - Network Adapter 2: Host-Only
+- VM4: just for test
+    - `free5gc@free5gc`: installed with [free5gc](https://github.com/root-hbx/free5gc)
+    - Memory: 2GB
+    - Processors: 2
+    - Network Adapter 1: NAT
+    - Network Adapter 2: Host-Only
 
-## Quick Start
+**Network Interfaces**
 
-**(0) Prerequisites for OpenSat**
+- VM1: `open5gs@open5gs`
+    - ens33: `172.16.162.137`
+        - NAT Interface, for data transfer with WAN
+    - ens37: `172.16.122.135`
+        - Host-only Interface, for connection on the same physical machine
+- VM2: `open5gs2@open5gs2`
+    - ens33: `172.16.162.141`
+        - NAT Interface, for data transfer with WAN
+    - ens34: `172.16.122.120`
+        - Host-only Interface, for connection on the same physical machine
+- VM3: `ueransim@ueransim`
+    - ens33: `172.16.162.134`
+        - NAT Interface, for data transfer with WAN
+    - ens34: `172.16.122.133`
+        - Host-only Interface, for connection on the same physical machine
+- VM4: `free5gc@free5gc`
+    - ens33: `172.16.162.135`
+        - NAT Interface, for data transfer with WAN
+    - ens34: `172.16.122.131`
+        - Host-only Interface, for connection on the same physical machine
+
+> [!WARNING]\
+> - We must set open5gs2's IP AddrPrefix as `172.16`, if not, such as `172.18`, the amfConfig (ueransim-satellite/config/open5gs2-gnb.yaml) and gNB IPs (linkIp/ngapIp/gtpIp) are not in the same sub-net, which is against 5G RAN rule settings.
+
+
+## Architecture
+
+![alt text](./docs/exp/image/end2end-ter-1.png)
+
+When UERANSIM connecting with Open5gs, there are 2 main links:
+
+1. N2: with AMF (5G control layer)
+2. N3: with UPF (5G data layer)
+
+Hence, there are 2 main configurations:
+
+1. gNodeB
+    - `vim open5gs-satellite/etc/open5gs/amf.yaml`
+    - `vim ~/UERANSIM/config/open5gs-gnb.yaml`
+    - test with `build/nr-gnb -c config/open5gs-gnb.yaml`
+2. UE
+    - `vim open5gs-satellite/etc/open5gs/upf.yaml`
+    - test with `sudo build/nr-ue -c config/open5gs-ue.yaml`
+
+## Walkthrough for VM 1
+
+Please refer to [End2End TrafficGen Instances (Terrestrial)](./end2end-ter.md)
+
+## Walkthrough for VM 2
+
+Same Idea here for `open5gs2@open5gs2`.
 
 ```sh
-cd $OPEN5GS_SATELLITE
-# create and activate pyvenv for opensat
-python3 -m venv .venv
-source activate-opensat
-# now you can use `opensat` command
-opensat -h
-```
-
-**(1) Skeleton**
-
-Follow [Building Open5GS from Sources - Open5GS](https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/) to configure and build the skeleton:
-
-- Getting MongoDB
-- Setting up TUN device (not persistent after rebooting)
-- Building Open5GS
-  - ensure all tests go smoothly
-  - config file: `$open5gs-satellite/build/configs/sample.yaml`
-- Running Open5GS
-  - no *Configure Open5gs*, run directly!
-  - ensure all tests work well
-  - config files: `$open5gs-satellite/install/etc/open5gs/[NAME].yaml`
-- Building the WebUI of Open5GS
-
-**(2) Roaming Between Core Networks**
-
-Follow [Roaming: Roaming Test on a Single Host](https://open5gs.org/open5gs/docs/tutorial/05-roaming/) to build a simple test:
-
-- Config Home PLMN
-- Config Visited PLMN
-- Run the V-PLMN 5G Core and H-PLMN 5G Core on a single host
-  - Home Network: open multiple windows, keep running for connection
-  - Visited Network: open multiple windows, keep running for observation
-  - Performs a test of UE access while roaming subscribed to H-PLMN
-
-**Warning: Something You Should Know Before Using OpenSat**
-
-(1) Every time you `git pull`, you need to rebuild the whole system:
-
-```sh
-# rebuild
+# open5gs-satellite
 cd open5gs-satellite
-meson build --prefix=`pwd`/install
-ninja -C build
-# test
-./build/tests/attach/attach ## EPC Only
-./build/tests/registration/registration ## 5G Core Only
-# ...
+git checkout mm-switch
+# ueransim-satellite
+cd ueransim-satellite
+git checkout open5gs2
 ```
 
-(2) Every time you restart your experiment device (PC/VM/Server...), you have to reconfigure the networks:
+### Part 1: gNodeB Config
 
-```sh
-# initialize opensat system: net | tun | db
-opensat sysinit
+**(1) vim open5gs-satellite/etc/open5gs/amf.yaml**
+
+Prev:
+
+```yaml
+ngap:
+    server:
+      - address: 127.0.0.5
 ```
 
-(3) Every time you finish your experiments, please deconstruct all open5gs resources:
+Modified:
+
+```yaml
+ngap:
+    server:
+      - address: 172.16.122.120 # ens34 (HostOnly) of open5gs2 machine
+```
+
+**(2) vim ~/UERANSIM/config/open5gs-gnb.yaml**
+
+Prev:
+
+```yaml
+linkIp: 127.0.0.1   # gNB's local IP address for Radio Link Simulation (Usually same with local IP)
+ngapIp: 127.0.0.1   # gNB's local IP address for N2 Interface (Usually same with local IP)
+gtpIp: 127.0.0.1    # gNB's local IP address for N3 Interface (Usually same with local IP)
+
+# List of AMF address information
+amfConfigs:
+  - address: 127.0.0.5
+    port: 38412
+```
+
+Modified:
+
+```yaml
+linkIp: 172.16.122.133   # ens34 (HostOnly) of ueransim machine
+ngapIp: 172.16.122.133   # ens34 (HostOnly) of ueransim machine
+gtpIp: 172.16.122.133    # ens34 (HostOnly) of ueransim machine
+
+# List of AMF address information
+amfConfigs:
+  - address: 172.16.122.120 # ens34 (HostOnly) of open5gs2 machine
+    port: 38412
+```
+
+After this, please start all service processes on Open5GS:
 
 ```sh
-# cleanup all opensat resources: ps | tun | db 
+# Prerequisites
+cd open5gs-satellite
+source activate-opensat
 opensat syscls
+opensat sysinit
+# Start Services (17/17)
+./install/bin/open5gs-nrfd
+./install/bin/open5gs-scpd
+./install/bin/open5gs-seppd -c ./install/etc/open5gs/sepp1.yaml
+./install/bin/open5gs-amfd
+./install/bin/open5gs-smfd
+./install/bin/open5gs-upfd
+./install/bin/open5gs-ausfd
+./install/bin/open5gs-udmd
+./install/bin/open5gs-pcfd
+./install/bin/open5gs-nssfd
+./install/bin/open5gs-bsfd
+./install/bin/open5gs-udrd
+./install/bin/open5gs-mmed
+./install/bin/open5gs-sgwcd
+./install/bin/open5gs-sgwud
+./install/bin/open5gs-hssd
+./install/bin/open5gs-pcrfd
 ```
 
-## Schedule
+**(3) test**
 
-For Integrated Space-Terrestrial Network (ISTN), focusing on mobility management of satellite networks.
+```sh
+cd ueransim-satellite
+build/nr-gnb -c config/open5gs2-gnb.yaml
+```
 
-Details can be checked [here](./docs/exp/dev.md).
+If the output shows like this, then we are all good in Part 1:
 
-## Contributing
+![alt text](./docs/exp/image/end2end-ter-2.png)
 
-We welcome all contributions to the project! See [CONTRIBUTING](./CONTRIBUTING.md) for how to get involved.
+👆 Here I just reused the prev `open5gs` image, same output for `open5gs2` as well.
 
-Copyright (C) 2025 OpenSat Boxuan Hu <huboxuan2004@gmail.com>
+### Part 2: UE Config
+
+**(1) vim open5gs-satellite/etc/open5gs/upf.yaml**
+
+Prev:
+
+```yaml
+    gtpu:
+        server:
+            - address: 127.0.0.7
+    session:
+        - subnet: 10.42.0.0/16
+          gateway: 10.42.0.1
+```
+
+Modified:
+
+```yaml
+    gtpu:
+        server:
+            - address: 172.16.122.120 # ens34 (HostOnly) of open5gs2 machine
+    session:
+        - subnet: 10.42.0.0/16
+          gateway: 10.42.0.1
+```
+
+**(2) register on Open5GS WebUI**
+
+```sh
+cd open5gs-satellite
+cd webui
+npm run dev
+```
+
+Then go to the WebUI, follow [this tutorial (QuickStart: Register Subscriber Information)](https://open5gs.org/open5gs/docs/guide/01-quickstart/) to log in
+
+After this, register with info in `UERANSIM/config/open5gs-ue.yaml`
+
+![alt text](./docs/exp/image/end2end-ter-5.png)
+
+Please be careful, we need `OPc` rather than `OP`!
+
+![alt text](./docs/exp/image/end2end-ter-6.png)
+
+Then click `save`, now we have:
+
+![alt text](./docs/exp/image/end2end-ter-7.png)
+
+Now UE config is okey!
+
+**(3) test**
+
+```sh
+cd ueransim-satellite
+sudo build/nr-ue -c config/open5gs2-ue.yaml
+```
+
+Then open a new terminal window, and `ifconfig`
+
+If the output contains `uertun0`, then we are all good in Part 2:
+
+![alt text](./docs/exp/image/end2end-ter-3.png)
+
+👆 Here I just reused the prev `open5gs` image, same output for `open5gs2` as well (`10.45 -> 10.42`).
+
+### Part 3: Traffic through 5G Core Network
+
+In UERANSIM terminal window (like above), ping a existing server or URL via `uertun0`:
+
+```sh
+ping -I uertun0 baidu.com
+ping -I uertun0 google.com
+ping -I uertun0 172.16.162.135 # ens33 (data-interface) of free5gc on my physical machine
+```
+
+If the output shows like this, then we are all good!
+
+![alt text](./docs/exp/image/end2end-ter-4.png)
+
+## Basic Workflow
+
+In fact, it is unnecessary to undergo extensive configuration and testing procedures each time (refer to Walkthrough above). 
+
+Following the initial walkthrough, we have completed the entire configuration and stored these config files in the corresponding branch. 
+
+Subsequently, our workflow is structured as follows:
+
+(1) Prerequisites:
+
+```sh
+# open5gs-satellite
+cd open5gs-satellite
+git checkout mm-switch
+# ueransim-satellite
+cd ueransim-satellite
+git checkout open5gs2
+```
+
+```sh
+# window 0: init and register
+# on open5gs2 VM
+# - initialize for system
+source activate-opensat
+opensat sysinit
+# - register for UE
+cd webui
+npm run dev
+```
+
+(2) Test and get `uertun0`:
+
+```sh
+# window 1: all open5gs services
+# on open5gs2 VM
+opensat psup
+```
+
+```sh
+# window 2:
+# on ueransim VM
+cd ueransim-satellite
+build/nr-gnb -c config/open5gs2-gnb.yaml
+```
+
+```sh
+# window 3:
+# on ueransim VM
+cd ueransim-satellite
+sudo build/nr-ue -c config/open5gs2-ue.yaml
+```
+
+```sh
+# window 4:
+# on ueransim VM
+ifconfig
+# you can also use wireshark here ;)
+```
+
