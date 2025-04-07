@@ -22,7 +22,19 @@ Coming Soon...
 
 ## Dynamic CoreNets
 
-Coming Soon...
+> End-to-End Terrestrial Traffic Switching between 2 CoreNets
+
+Based on "[End2End TrafficGen Instances (Terrestrial)](./end2end-ter.md)", now we wanna test traffic switching between different corenets.
+
+In this process:
+
+1. Network traffic can be captured and analyzed using **Wireshark** or **Traceroute** to determine the traffic path.  
+2. Two 5G core networks (`open5gs` / `open5gs2`) are implemented using **Open5GS**.  
+3. The UE is simulated by **UERANSIM**.
+
+This module is inspired by [#issue 5](https://github.com/root-hbx/open5gs-satellite/issues/5).
+
+Details can be checked [here](./dynamic-corenet.md).
 
 ## High-Frequency Link Establishment
 

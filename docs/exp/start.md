@@ -10,7 +10,7 @@ Given the abundance of relevant tutorials available, details are omitted here du
 
 I just provide one tutorial about [VMware 17 Installation](https://blog.bxhu2004.com/BLOG/Linux/vmware-conf/), which is written by myself in Chinese. Sorry for the lack of English version. If time permitted, I will be working on this part in the near future.
 
-## Install and Config 3 VMs
+## Install and Config 4 VMs
 
 Install 3 virtual machines via VMware Workstation:
 
@@ -57,7 +57,40 @@ network:
       addresses: [172.16.122.135/24] # prev: nothing this line
 ```
 
-### VM2: free5gc
+### VM2: open5gs2
+
+Hardware Settings (in VMware dashboard):
+
+- Processors: 8
+- Memory: 12GB (The more. the better. 12 is the lower bound)
+
+System: Ubuntu 22.04.5 LTS
+
+Usrname@Hostname: `open5gs2@open5gs2`
+
+Network Interfaces:
+
+- Network Adapter 1, NAT 
+    - ens33, `172.16.162.141`
+    - This interface doesn't matter, depends on your DHCP
+- Network Adapter 2, Host-Only
+    - ens37, `172.16.122.120`
+    - It's better to keep the same
+
+```sh
+(.venv) open5gs2@open5gs2:/etc/netplan$ cat 01-netcfg.yaml 
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens33:
+      dhcp4: true
+    ens37:
+      dhcp4: no # prev: true
+      addresses: [172.16.122.120/24] # prev: nothing this line
+```
+
+### VM3: free5gc
 
 Hardware Settings (in VMware dashboard):
 
@@ -90,7 +123,7 @@ network:
   version: 2
 ```
 
-### VM3: ueransim
+### VM4: ueransim
 
 Hardware Settings (in VMware dashboard):
 
