@@ -148,6 +148,14 @@ For Integrated Space-Terrestrial Network (ISTN), focusing on mobility management
 
 Details can be checked [here](./docs/exp/dev.md).
 
+|Experiments|Jump to|Status|
+|:---:|:---:|:---:|
+|End2End TrafficGen Instances (Terrestrial)||✅|
+|End2End TrafficGen Instances (Satellite)||⌛️|
+|Dynamic CoreNets||👷|
+|High-Frequency Link Establishment||⌛️|
+|Roaming between Multiple Satellite CoreNets||⌛️|
+
 ## Contributing
 
 We welcome all contributions to the project! See [CONTRIBUTING](./CONTRIBUTING.md) for how to get involved.
