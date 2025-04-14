@@ -12,3 +12,5 @@ webui/.next
 
 # pyvenv
 .venv/
+.cache/
+.vscode/
