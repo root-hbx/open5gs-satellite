@@ -39,6 +39,10 @@
 
 ------
 
+OpenSat is an open-source satellite network service framework built on Open5GS, focusing on mobility management for Low Earth Orbit (LEO) satellite networks. 
+
+It primarily investigates the process of traffic handover between core networks and its impact on upper-layer application services.
+
 This repo is based on [open5gs](https://open5gs.org/) v2.7.4
 
 Currently, there are several branch:
