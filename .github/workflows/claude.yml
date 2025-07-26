@@ -34,5 +34,6 @@ jobs:
         env:
           ANTHROPIC_BASE_URL: https://api.laozhang.ai/
         with:
+          model: claude-3-5-haiku-20241022
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           timeout_minutes: "60"
