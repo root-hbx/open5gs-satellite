@@ -32,7 +32,8 @@ jobs:
       - name: Run Claude PR Action
         uses: anthropics/claude-code-action@beta
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_url: "https://api.laozhang.com/v1/messages" # relay base_url
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} # relay API key
           # Or use OAuth token instead:
           # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           timeout_minutes: "60"
